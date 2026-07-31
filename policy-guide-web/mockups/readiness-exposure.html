@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Readiness recut — exposure diagnostic mockup</title>
+<style>
+:root{
+  --ground:#0C1720; --panel:#132635; --panel-2:#193243;
+  --ink:#E9F1F6; --muted:#90A9BC; --dim:#CFDDE6;
+  --teal:#4FB3A6; --amber:#E9A13B; --blue:#6E86A8;
+  --line:rgba(143,178,201,.16); --line-strong:rgba(143,178,201,.32);
+  --display:Georgia,serif;
+  --body:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-weight:300;line-height:1.6}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin:0}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+
+.mock-note{background:var(--panel-2);border-bottom:1px solid var(--line-strong);padding:10px 24px;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+.mock-note b{color:var(--teal);font-weight:600}
+
+/* ─── LONG SHOT ─── */
+.longshot{padding:74px 0 64px;border-bottom:1px solid var(--line)}
+.state-line{display:flex;align-items:center;gap:14px;margin-bottom:30px}
+.state-line .code{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--ground);background:var(--blue);padding:5px 9px;font-weight:600}
+.state-line .posture{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:8px}
+.state-line .posture i{width:9px;height:9px;background:var(--teal);display:block}
+.verdict{font-family:var(--display);font-weight:500;font-size:clamp(32px,4.4vw,54px);line-height:1.12;letter-spacing:-.025em;margin:0;max-width:26ch}
+.verdict em{font-style:normal;color:var(--amber)}
+.verdict-sub{color:var(--dim);font-size:18px;line-height:1.68;max-width:62ch;margin:28px 0 0}
+.verdict-sub b{color:var(--ink);font-weight:600}
+.state-switch{margin-top:34px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.state-switch label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.state-switch select{background:var(--panel);color:var(--ink);border:1px solid var(--line-strong);padding:9px 12px;font:inherit;font-size:14px}
+
+/* ─── PRE-SHOW ─── */
+.preshow{padding:46px 0;border-bottom:1px solid var(--line)}
+.preshow .wrap{display:grid;grid-template-columns:190px minmax(0,1fr);gap:44px}
+.preshow p{margin:0;color:var(--dim);max-width:68ch}
+.preshow p+p{margin-top:14px}
+
+/* ─── MEDIUM SHOT ─── */
+.medium{padding:56px 0 40px}
+.medium-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.medium-head h2{font-family:var(--display);font-weight:500;font-size:34px;letter-spacing:-.02em;margin:8px 0 0;line-height:1.2}
+.fork{display:flex;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+.fork button{background:var(--panel);border:0;color:var(--muted);font:inherit;font-size:13px;padding:9px 16px;cursor:pointer}
+.fork button.on{background:var(--teal);color:var(--ground);font-weight:600}
+.tally{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted);margin:24px 0 0;line-height:1.7}
+.tally b{color:var(--amber)}
+
+.cards{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:18px}
+.card{background:var(--ground)}
+.card-head{display:grid;grid-template-columns:34px minmax(0,1fr) 22px;gap:18px;align-items:start;padding:26px 28px;cursor:pointer}
+.card-head:hover{background:var(--panel)}
+.card.open .card-head{background:var(--panel)}
+.card-head .n{font-family:var(--mono);font-size:12px;color:var(--blue);padding-top:5px}
+.card-head h3{font-family:var(--display);font-weight:500;font-size:23px;line-height:1.3;margin:0 0 18px}
+.chev{color:var(--muted);font-size:15px;padding-top:4px;transition:transform .2s}
+.card.open .chev{transform:rotate(90deg)}
+
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.three > div{border-top:1px solid var(--line-strong);padding-top:12px}
+.three .lbl{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px;font-weight:600}
+.three .taught .lbl{color:var(--teal)}
+.three .says .lbl{color:var(--amber)}
+.three .fails .lbl{color:var(--blue)}
+.three p{margin:0;font-size:13.5px;line-height:1.55;color:var(--dim)}
+
+/* ─── CLOSE SHOT ─── */
+.close{display:none;padding:0 28px 34px 80px;border-top:1px solid var(--line)}
+.card.open .close{display:block}
+.close-block{padding:26px 0;border-bottom:1px solid var(--line)}
+.close-block:last-child{border-bottom:0;padding-bottom:0}
+.close-block h4{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 14px;font-weight:600}
+.close-block > p{margin:0 0 10px;color:var(--dim);max-width:74ch}
+.position{border-left:2px solid var(--teal);background:var(--panel-2);padding:18px 22px}
+.position p{margin:0;color:var(--ink);font-size:16px;line-height:1.62}
+.evidence-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--dim);background:var(--panel-2);border:1px solid var(--line-strong);padding:5px 9px}
+.chip b{color:var(--teal);font-weight:600}
+.objection{border-left:2px solid var(--amber);padding-left:20px}
+.objection .q{font-family:var(--display);font-size:19px;line-height:1.45;color:var(--ink);margin:0 0 14px}
+.objection p{margin:0 0 10px;color:var(--dim);max-width:74ch}
+.objection p:last-child{margin-bottom:0}
+.draft-flag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ground);background:var(--amber);padding:3px 7px;margin-bottom:14px;font-weight:700}
+.why{margin-top:16px}
+.why summary{cursor:pointer;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);list-style:none}
+.why summary::-webkit-details-marker{display:none}
+.why summary:before{content:"+ "}
+.why[open] summary:before{content:"– "}
+.why-body{padding:14px 0 0;font-size:13px;color:var(--muted);line-height:1.65;max-width:74ch}
+
+@media(max-width:860px){
+  .preshow .wrap{grid-template-columns:1fr;gap:16px}
+  .three{grid-template-columns:1fr;gap:16px}
+  .close{padding-left:28px}
+  .card-head{grid-template-columns:24px minmax(0,1fr) 18px;gap:12px;padding:22px 18px}
+  .medium-head{align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="mock-note">
+  <b>MOCKUP</b> &nbsp;Readiness recut as an exposure diagnostic &nbsp;·&nbsp; Illinois shown &nbsp;·&nbsp; real content, real palette, not wired to the app
+</div>
+
+<!-- ══════════ LONG SHOT ══════════ -->
+<section class="longshot">
+  <div class="wrap">
+    <div class="state-line">
+      <span class="code">IL</span>
+      <span class="posture"><i></i>Guidance, not a mandate</span>
+    </div>
+
+    <h1 class="verdict">They spent four years under a written AI rule. <em>Yours is the first one they cannot find.</em></h1>
+
+    <p class="verdict-sub">Illinois published guidance under Public Act 104-0399 and named no statewide scale. Nothing in that law obliges a university. But your incoming class also sat in classrooms across the other 51 jurisdictions, and <b>seven of them publish a leveled AI permission scale that four attribute to peer-reviewed university research.</b> The case here rests entirely on merits. It does not rest on whether anyone is making you.</p>
+
+    <div class="state-switch">
+      <label for="st">Showing</label>
+      <select id="st">
+        <option>Illinois — no higher-ed hook</option>
+        <option>Tennessee — bound, deadline passed</option>
+        <option>Texas — expressly exempted</option>
+        <option>Maryland — tasked by statute</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PRE-SHOW ══════════ -->
+<section class="preshow">
+  <div class="wrap">
+    <p class="eyebrow">How to read this</p>
+    <div>
+      <p>This is a diagnosis, not a checklist. Each point below names one thing your incoming students were taught to expect, one thing your syllabus or handbook probably does not say, and who the mismatch fails.</p>
+      <p>Nothing here assumes every student arrived trained. Adoption varies by district and most K-12 guidance is voluntary. The point is that you cannot tell which students those are, and one silence fails the trained and the untrained student in opposite directions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ MEDIUM SHOT ══════════ -->
+<section class="medium">
+  <div class="wrap">
+    <div class="medium-head">
+      <div>
+        <p class="eyebrow">The exposure map</p>
+        <h2>Six things your students expect that your syllabus probably does not say</h2>
+      </div>
+      <div class="fork">
+        <button class="on">What I control as faculty</button>
+        <button>What only the institution controls</button>
+      </div>
+    </div>
+    <p class="tally">Open any point for the position to take, the evidence behind it, and the objection you will hear first.<br><b>Point 05 is open below to show the third layer.</b></p>
+
+    <div class="cards">
+
+      <!-- 01 -->
+      <div class="card">
+        <div class="card-head" role="button" tabindex="0">
+          <div class="n">01</div>
+          <div>
+            <h3>Permission is a property of the assignment, not the course.</h3>
+            <div class="three">
+              <div class="taught"><span class="lbl">What they were taught</span><p>Each task carries a posted level, from an AI-free floor up to full disclosed collaboration. The level was taught, not inferred.</p></div>
+              <div class="says"><span class="lbl">What your syllabus probably says</span><p>One rule for the whole course, or nothing at all.</p></div>
+              <div class="fails"><span class="lbl">Who this fails</span><p>The trained student, who reads a blanket rule as less rigorous than their high school.</p></div>
+            </div>
+          </div>
+          <div class="chev">›</div>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="card">
+        <div class="card-head" role="button" tabindex="0">
+          <div class="n">02</div>
+          <div>
+            <h3>Disclosure has a named format.</h3>
+            <div class="three">
+              <div class="taught"><span class="lbl">What they were taught</span><p>A citation format, a disclosure statement, and in two states a retained link to the AI chat itself.</p></div>
+              <div class="says"><span class="lbl">What your syllabus probably says</span><p>Cite your sources.</p></div>
+              <div class="fails"><span class="lbl">Who this fails</span><p>The honest student, who wants to disclose and cannot find out how.</p></div>
+            </div>
+          </div>
+          <div class="chev">›</div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="card">
+        <div class="card-head" role="button" tabindex="0">
+          <div class="n">03</div>
+          <div>
+            <h3>If a tool is required, it is provided.</h3>
+            <div class="three">
+              <div class="taught"><span class="lbl">What they were taught</span><p>Tool parity. A school that requires a tool supplies it, so the paying student holds no advantage.</p></div>
+              <div class="says"><span class="lbl">What your syllabus probably says</span><p>Nothing about who pays for the tool it assumes you have.</p></div>
+              <div class="fails"><span class="lbl">Who this fails</span><p>The student on the free tier, graded against classmates on the paid one.</p></div>
+            </div>
+          </div>
+          <div class="chev">›</div>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="card">
+        <div class="card-head" role="button" tabindex="0">
+          <div class="n">04</div>
+          <div>
+            <h3>Some work is AI-free, and the reason is taught.</h3>
+            <div class="three">
+              <div class="taught"><span class="lbl">What they were taught</span><p>An explicit rationale for protecting unaided work, including the calculator analogy and the argument from repetition.</p></div>
+              <div class="says"><span class="lbl">What your syllabus probably says</span><p>AI is prohibited on this assignment, with no reason given.</p></div>
+              <div class="fails"><span class="lbl">Who this fails</span><p>Every student, who reads an unexplained ban as distrust rather than as pedagogy.</p></div>
+            </div>
+          </div>
+          <div class="chev">›</div>
+        </div>
+      </div>
+
+      <!-- 05 — OPEN -->
+      <div class="card open">
+        <div class="card-head" role="button" tabindex="0">
+          <div class="n">05</div>
+          <div>
+            <h3>A detector result is not proof, and they were told so.</h3>
+            <div class="three">
+              <div class="taught"><span class="lbl">What they were taught</span><p>Seven jurisdictions publish detector skepticism in writing. Maryland calls detectors unreliable and inequitable. Illinois calls a result one data point.</p></div>
+              <div class="says"><span class="lbl">What your syllabus probably says</span><p>Nothing, while the detector runs inside your LMS by default.</p></div>
+              <div class="fails"><span class="lbl">Who this fails</span><p>The multilingual student, who carries the highest false-positive exposure and was never taught to expect it here.</p></div>
+            </div>
+          </div>
+          <div class="chev">›</div>
+        </div>
+
+        <div class="close">
+
+          <div class="close-block">
+            <h4>The position to take</h4>
+            <div class="position">
+              <p>Publish your detector stance before a case arises. State that detector output never stands alone as evidence, that concerns begin with a conversation anchored to the posted level of that assignment, and that a student may contest any AI-related finding.</p>
+            </div>
+          </div>
+
+          <div class="close-block">
+            <h4>What the evidence supports</h4>
+            <p>Seven jurisdictions publish caution about detectors. Twenty-two are silent, which this project records as a gap rather than as endorsement. No state guidance in the corpus instructs a teacher to treat a detector result as sufficient evidence of misconduct.</p>
+            <p>Washington and North Carolina go further and describe the response as a conversation. North Carolina names it a teachable moment. That is the practice a scale-state student may arrive expecting, and it may not be the practice your integrity office follows.</p>
+            <div class="evidence-row">
+              <span class="chip"><b>MD</b> unreliable and inequitable</span>
+              <span class="chip"><b>IL</b> one data point, not proof</span>
+              <span class="chip"><b>OK</b> false positives named</span>
+              <span class="chip"><b>MA</b> discourage reliance</span>
+              <span class="chip"><b>MS</b> English-learner false positives</span>
+              <span class="chip"><b>CA</b> not sole evidence</span>
+              <span class="chip"><b>UT</b> one of several tools</span>
+            </div>
+            <details class="why">
+              <summary>Where these come from</summary>
+              <div class="why-body">Each chip links to that jurisdiction's profile and its recorded primary sources. Detector silence is recorded as a gap rather than a position, because the corpus cannot distinguish a state that considered detectors and declined to endorse them from one that never addressed the question at all.</div>
+            </details>
+          </div>
+
+          <div class="close-block">
+            <h4>The objection you will hear first</h4>
+            <div class="objection">
+              <span class="draft-flag">Newly drafted — needs your approval</span>
+              <p class="q">"We already have an academic integrity office and the detector is built into the LMS. This is solved."</p>
+              <p>The detector being available is not a position on what it proves. Your integrity office has a process for adjudicating a charge. It does not have a published standard of evidence for this particular charge, and the difference surfaces the first time a multilingual student is flagged and asks what the threshold was.</p>
+              <p>Seven state education agencies wrote that standard down for teenagers. A faculty member enforcing an unpublished one is exposed personally, and so is the institution on appeal. Publishing the stance costs a paragraph and removes the improvisation.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 06 -->
+      <div class="card">
+        <div class="card-head" role="button" tabindex="0">
+          <div class="n">06</div>
+          <div>
+            <h3>There is a way to contest the finding.</h3>
+            <div class="three">
+              <div class="taught"><span class="lbl">What they were taught</span><p>An appeal path, including for a grade that AI helped produce.</p></div>
+              <div class="says"><span class="lbl">What your syllabus probably says</span><p>Appeals exist for grades, and no one has said whether this counts.</p></div>
+              <div class="fails"><span class="lbl">Who this fails</span><p>The wrongly accused student, who cannot tell which office to go to.</p></div>
+            </div>
+          </div>
+          <div class="chev">›</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.card-head').forEach(function(h){
+  function toggle(){ h.closest('.card').classList.toggle('open') }
+  h.addEventListener('click', toggle)
+  h.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle() }
+  })
+})
+document.querySelectorAll('.fork button').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('.fork button').forEach(function(x){ x.classList.remove('on') })
+    b.classList.add('on')
+  })
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# Dependencies and build caches
+node_modules/
+.parcel-cache/
+.vite/
+.vite-temp/
+.tmp/
+
+# Build output. The distributable is policy-guide-web/release/index.html,
+# which IS tracked. dist/ is the intermediate Vite output and is not.
+policy-guide-web/dist/
+
+# OS cruft
+.DS_Store
+*.swp

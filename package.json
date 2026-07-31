@@ -1,0 +1,13 @@
+{
+  "name": "state-ai-policy-field-map",
+  "private": true,
+  "scripts": {
+    "paths": "node gen-paths.js",
+    "build": "node gen-paths.js && node build.js"
+  },
+  "dependencies": {
+    "us-atlas": "^3.0.1",
+    "topojson-client": "^3.1.0",
+    "topojson-simplify": "^3.0.3"
+  }
+}

@@ -1,0 +1,431 @@
+{
+  "_README": "Provenance ledger for the site. read = someone opened the primary document and checked the site claims against it. downloaded = the document is in resources/<state>/ but nobody has verified the claims against it. none = no primary document captured. Edit this file by hand; the site reads it at build time.",
+  "_updated": "2026-07-30",
+  "jurisdictions": {
+    "Alabama": {
+      "status": "read",
+      "documents": [
+        "ALSDE-AI-Policy-Template.docx",
+        "HB329-enrolled.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Negative claim consistent. No detector language anywhere in either document."
+    },
+    "Alaska": {
+      "status": "read",
+      "documents": [
+        "Alaska-K12-AI-Framework.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Negative claim consistent with the document. No detector discussion present; the integrity model is attribution-based. Instrument claim also consistent, an AI Acceptable Use Scale is referenced but not reproduced."
+    },
+    "Arizona": {
+      "status": "read",
+      "documents": [
+        "AZ-GenAI-Guidance-NAU.pdf",
+        "HB4005.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Detector caution confirmed, including bias against English learners and neurodivergent students. | Hook confirmed. The guidance is authored by Northern Arizona University with an AI Guidance Core Team including Arizona State University."
+    },
+    "Arkansas": {
+      "status": "read",
+      "documents": [
+        "AI-CoE-Initial-Report.pdf",
+        "VirtualArkansas-AI-Planning-Guide.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed, including the Michigan lineage. The Virtual Arkansas planning guide states an earlier version was authored by Michigan Virtual, which explains the shared rubric structure."
+    },
+    "California": {
+      "status": "read",
+      "documents": [
+        "CDE-AI-Model-Policy-2026.docx",
+        "CDE-AI-Resource-Kit.pdf",
+        "CDE-Learning-with-AI-2023.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed verbatim: AI detection software should not be used as the sole basis for disciplinary action or grade penalty."
+    },
+    "Colorado": {
+      "status": "read",
+      "documents": [
+        "Colorado-Roadmap-AI-K12-Aug2024.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed: current AI detection tools are already failing to be helpful."
+    },
+    "Connecticut": {
+      "status": "none",
+      "documents": [],
+      "checkedOn": null,
+      "note": null
+    },
+    "Delaware": {
+      "status": "none",
+      "documents": [],
+      "checkedOn": null,
+      "note": null
+    },
+    "District of Columbia": {
+      "status": "read",
+      "documents": [
+        "DCPS-AcceptableUse-SY25-26.pdf",
+        "SR24-12-draft.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed. The DCPS Acceptable Use Policy sets expectations for responsible AI use, defines AI, and lists prohibited activities. SR24-12 captured separately."
+    },
+    "Florida": {
+      "status": "none",
+      "documents": [],
+      "checkedOn": null,
+      "note": null
+    },
+    "Georgia": {
+      "status": "read",
+      "documents": [
+        "GaPSC-Ethical-Considerations-AI-2025-06-16.pdf",
+        "Leveraging-AI-in-K12-Setting.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "CLAIM NOT CONFIRMED. Neither captured document contains red light, yellow light, green light, or traffic light language. The site still asserts a Redlight system as fact in its instrument field."
+    },
+    "Hawaii": {
+      "status": "none",
+      "documents": [],
+      "checkedOn": null,
+      "note": null
+    },
+    "Idaho": {
+      "status": "read",
+      "documents": [
+        "S1227-enacted.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed. SB 1227 sec.33-7004 POLICY ADOPTION: \"Each local school district and public charter school shall adopt a policy governing the use of generative artificial intelligence.\" The SDE develops the statewide framework that district policy is built on."
+    },
+    "Illinois": {
+      "status": "read",
+      "documents": [
+        "ISBE-AI-Guidance.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed verbatim: schools use AI-detection tools as one data point, not as definitive proof of cheating."
+    },
+    "Indiana": {
+      "status": "read",
+      "documents": [
+        "Indiana-AI-Guidance.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed: reconsider the use of AI detection tools as the sole source."
+    },
+    "Iowa": {
+      "status": "read",
+      "documents": [
+        "HF2540.pdf",
+        "SF2094.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Hook confirmed. Both bills name higher education institutions that offer computer science teacher preparation pathways."
+    },
+    "Kansas": {
+      "status": "none",
+      "documents": [],
+      "checkedOn": "2026-07-30",
+      "note": "Retrieval reattempted 2026-07-30. The recorded KSDE board-materials URL now returns an HTML error page, not a PDF. Absence claim still rests on the KSDE statement recorded in the ledger."
+    },
+    "Kentucky": {
+      "status": "read",
+      "documents": [
+        "KDE-AI-Guidance-Brief.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed verbatim: three paradigms, AI-directed (learner as recipient), AI-supported (learner as collaborator), AI-empowered (learner as leader)."
+    },
+    "Louisiana": {
+      "status": "read",
+      "documents": [
+        "LDOE-AI-Guidance.pdf",
+        "LDOE-CREATE-Framework.pdf",
+        "LDOE-Pre-Work-Checklist.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "ONE four-tier model, not two. Each tier is paired with a SAMR component: AI-Empowered (Redefinition), AI-Enhanced (Modification), AI-Assisted (Augmentation), AI-Prohibited (Substitution). The Foundational/Synergistic labels do not exist in the document. | CONFIRMED AS THE OUTLIER. The document actively recommends plagiarism detection tools and devotes a section to Tools and Methods for Detection. Louisiana runs against the national pattern."
+    },
+    "Maine": {
+      "status": "none",
+      "documents": [],
+      "checkedOn": null,
+      "note": null
+    },
+    "Maryland": {
+      "status": "read",
+      "documents": [
+        "MSDE-AI-Guidance-A.pdf",
+        "MSDE-AI-Policy-A.pdf",
+        "SB0720-enrolled.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed: Maryland does not endorse AI-detection tools as a primary means of enforcing academic integrity, and cites bias against non-native English writers. | Hook PARTIALLY confirmed. The captured guidance references postsecondary success and is issued by the Division of College and Career Pathways, but the specific Morgan State tool-certification claim was not located in the captured text."
+    },
+    "Massachusetts": {
+      "status": "read",
+      "documents": [
+        "DESE-AI-Guidance.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed: detection tools are often inaccurate and reinforce punitive mindsets."
+    },
+    "Michigan": {
+      "status": "read",
+      "documents": [
+        "MichiganVirtual-AI-Integration-Framework.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Rubric confirmed. Three stages named Investigating, Implementing, Innovating, across eight domains: Leadership & Vision; Policy, Ethical & Legal Considerations; Instructional Framework; Learning Assessments; Professional Learning; Student Use; Business & Technology Operations; Public Outreach."
+    },
+    "Minnesota": {
+      "status": "read",
+      "documents": [
+        "MDE-AI-in-Education.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed. Guidance is organised around guiding principles and is explicitly based on the US Department of Education Office of Educational Technology report. No use scale."
+    },
+    "Mississippi": {
+      "status": "read",
+      "documents": [
+        "MDE-AI-Guidance.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed. Names AI Content Detector, GPTZero and Turnitin, with accuracy cautions."
+    },
+    "Missouri": {
+      "status": "downloaded",
+      "documents": [
+        "DESE-AI-Guidance.pdf",
+        "HB3139.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "CLAIM NOT FOUND. The site records a \"Five S\" prompting framework. The captured DESE guidance has a Prompt Engineering section but contains no Five S framework anywhere. Drop or re-source."
+    },
+    "Montana": {
+      "status": "read",
+      "documents": [
+        "Montana-AI-K12-Guidelines.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Hook confirmed. Names the Board of Regents of Higher Education and has a dedicated Higher Education / Workforce Connections section."
+    },
+    "Nebraska": {
+      "status": "none",
+      "documents": [],
+      "checkedOn": null,
+      "note": null
+    },
+    "Nevada": {
+      "status": "read",
+      "documents": [
+        "AI-Ethics-Statement.pdf",
+        "STELLAR-Pathway.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed. The four-stage progression Understand, Apply, Integrate, Grow is present. STELLAR is an acronym: Security, Transparency, Empowerment, Learning, Leadership, Achievement, Responsible Use. Note the AI-Ethics-Statement PDF is a scan with no text layer."
+    },
+    "New Hampshire": {
+      "status": "none",
+      "documents": [],
+      "checkedOn": null,
+      "note": null
+    },
+    "New Jersey": {
+      "status": "read",
+      "documents": [
+        "A4352-introduced.html"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "RESOLVED AT PRIMARY SOURCE. A4352 sec.2(a): \"Each public institution of higher education shall offer certificate and degree programs in artificial intelligence.\" The model curricula in sec.2(b) exist to ASSIST institutions in meeting that requirement. The ledger entry calling the offer-degrees reading a tracker error is itself WRONG. Still pending, not enacted."
+    },
+    "New Mexico": {
+      "status": "read",
+      "documents": [
+        "NM-AI-Guidance-Signed-2025-04-29.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Five levels confirmed p.19, verbatim Perkins AIAS names: NO AI, AI PLANNING, AI COLLABORATION, FULL AI, AI EXPLORATION. | Detector claim also confirmed: detectors make a prediction, low reliability, bias against non-native writers."
+    },
+    "New York": {
+      "status": "none",
+      "documents": [],
+      "checkedOn": null,
+      "note": null
+    },
+    "North Carolina": {
+      "status": "read",
+      "documents": [
+        "NCDPI-GenAI-Recommendations-livingdoc.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed as 0 to Infinity: NCDPI AI Use Continuum v2.0, Appendix B. Level 0 AI Free, 1 AI for Planning, 2 AI Collaboration, 3 Full AI Use, 4 AI Exploration. | Detector claim also confirmed verbatim: AI detectors have proven not to be dependable, therefore they should never be used as the only factor."
+    },
+    "North Dakota": {
+      "status": "downloaded",
+      "documents": [
+        "Checklist-Business-and-IT.pdf",
+        "Checklist-Educators.pdf",
+        "Checklist-Policy-Ethical-Legal.pdf",
+        "Checklist-Public-Outreach.pdf",
+        "Checklist-School-Leadership.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "CLAIM WEAK. Site says \"Neutral mention\" of detectors. The five captured checklists mention plagiarism as a question to address but contain no detector discussion at all. Downgrade or drop the claim."
+    },
+    "Ohio": {
+      "status": "read",
+      "documents": [
+        "DEW-AI-In-Education-Model-Policy.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Hook confirmed. The DEW model policy names \"local businesses and postsecondary institutions\" as external workgroup representatives."
+    },
+    "Oklahoma": {
+      "status": "read",
+      "documents": [
+        "OSDE-AI-Guidance-v2.0.pdf",
+        "SB1734-enrolled.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Scale transcribed from p.17. ERROR FOUND: site showed chat links required only at Level 4; the document requires them at Levels 1-4. Corrected."
+    },
+    "Oregon": {
+      "status": "read",
+      "documents": [
+        "ODE-Developing-Policy-Protocols-GenAI-March2025.pdf",
+        "ODE-GenAI-in-K12-2023.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed: consider using AI detectors with the understanding that they often incorrectly detect, mixed results named for GPT Zero."
+    },
+    "Pennsylvania": {
+      "status": "read",
+      "documents": [
+        "PDE-AI-Endorsement-Framework.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed. The PDE AI Program Endorsement Guidelines are addressed to certificate-granting institutions, alone or in cooperation with others, which supports the teacher-prep hook."
+    },
+    "Puerto Rico": {
+      "status": "read",
+      "documents": [
+        "IA-en-el-sistema-educativo.pdf",
+        "Manual-AI-para-Estudiantes-2026.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Five levels confirmed. Direct Spanish translation of the Washington OSPI scale, cited to OSPI in footnote 24. Nivel 1 Sin Asistencia de IA to Nivel 5 IA como Cocreador. The July 28 tutor de apoyo basico wording does not appear anywhere."
+    },
+    "Rhode Island": {
+      "status": "read",
+      "documents": [
+        "RIDE-AI-Guidance-2025-08-15.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Negative claim consistent. No detector discussion found."
+    },
+    "South Carolina": {
+      "status": "read",
+      "documents": [
+        "SC-AI-Framework.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed. The document is an AI Standards Framework built on Themes and Standards, not a student-use permission scale. The site is right to say the CTE tiers are not a use scale."
+    },
+    "South Dakota": {
+      "status": "none",
+      "documents": [],
+      "checkedOn": null,
+      "note": null
+    },
+    "Tennessee": {
+      "status": "read",
+      "documents": [
+        "Public-Chapter-550.pdf",
+        "TSBA-Model-Policy-4.214.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "HOOK CONFIRMED AND STRONGER THAN STATED. Public Chapter 550 sec.(b): the UT board, the board of regents, and each state university board \"shall adopt a policy regarding the use of artificial intelligence technology by students, faculty, and staff for instructional and assignment purposes\", implemented no later than July 1 2025. Sec.(d) also requires posting the policy publicly and submitting it to named legislative committees, with a noncompliance hearing within 60 days. NOTE: the same act bound K-12 districts earlier, by the 2024-25 school year."
+    },
+    "Texas": {
+      "status": "read",
+      "documents": [
+        "HB149-TRAIGA-enrolled.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Document retrieved 2026-07-30 and checked. HB 149 (TRAIGA) contains ZERO occurrences of \"higher education\" and ZERO of \"school\". There is no express education carve-out clause in the text. The site claim \"TRAIGA carves higher ed OUT of governance duties\" should be restated as an absence: the statute simply never reaches education. The \"deliberately excluded per Sen. Royce West\" point is a reported legislative statement, not bill text, and should be labelled as such."
+    },
+    "Utah": {
+      "status": "read",
+      "documents": [
+        "HB0218-enrolled.pdf",
+        "SB0322-introduced.pdf",
+        "USBE-AI-Framework.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed, though the document says plagiarism checkers rather than detectors. Use caution, they can sometimes produce false positives, consider using them as one of several tools."
+    },
+    "Vermont": {
+      "status": "read",
+      "documents": [
+        "AOE-AI-Guidance-for-Education.pdf",
+        "Act156-as-enacted.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed verbatim: do not rely on AI auto-detection tools, the teacher will be a better judge."
+    },
+    "Virginia": {
+      "status": "read",
+      "documents": [
+        "VA-AI-Education-Guidelines.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Hook confirmed. Guidance names Virginia colleges and universities and includes a \"Work in partnership\" directive."
+    },
+    "Washington": {
+      "status": "read",
+      "documents": [
+        "ESHB2225.pdf",
+        "OSPI-5-Step-Scaffolding-Scale-Students.pdf",
+        "OSPI-AI-Assignment-Matrix-Educators.pdf",
+        "OSPI-Human-Centered-AI-Guidance-v3.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Five-level student scale confirmed in OSPI guidance v3 (p.20) and both standalone companion PDFs. Level 1 No AI Assistance to Level 5 AI as Co-Creator. Separate educator assignment matrix also present. The July 28 four-step correction was wrong. | Detector claim also confirmed. Dedicated section at p.40 on avoiding sole reliance on AI detection tools."
+    },
+    "West Virginia": {
+      "status": "read",
+      "documents": [
+        "WVDE-AI-Guidance-1.2-March2025.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Confirmed: refrain from using tools that claim to detect AI-developed content. | Hook confirmed. Names the WV Higher Education Policy Commission and the Council for Community and Technical College Education."
+    },
+    "Wisconsin": {
+      "status": "read",
+      "documents": [
+        "WI-DPI-AI-Guidance.docx"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Negative claim consistent. Plagiarism appears once as an ethical concern, with no detector position."
+    },
+    "Wyoming": {
+      "status": "read",
+      "documents": [
+        "WDE-Guidance-for-AI-Policy-Development.pdf"
+      ],
+      "checkedOn": "2026-07-30",
+      "note": "Four named levels confirmed p.7: AI FREE, AI ASSISTED, AI ENHANCED, AI EMPOWERED. Not numbered. Chat links required at the upper three. AIAS credit line present, with Furze/Perkins/Roe/Mcvaugh misspelled as in Oklahoma. | Hook confirmed verbatim. \"Local College Representative\" appears in the stakeholder committee membership list on p.3."
+    }
+  },
+  "_scope": "Verified so far: the student-use INSTRUMENT claim for all 8 states publishing one, the DETECTOR claim for every state with a captured document, and the HIGHER-ED HOOK for the Tier A states with documents. Remaining guidance claims are not yet checked."
+}

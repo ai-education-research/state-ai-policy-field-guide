@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>State AI Policy for High Schools — A Field Map for Higher Ed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Public+Sans:wght@300;400;600;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#0C1720;
+  --panel:#132635;
+  --panel-2:#193243;
+  --line:rgba(143,178,201,.16);
+  --line-strong:rgba(143,178,201,.32);
+  --ink:#E9F1F6;
+  --muted:#90A9BC;
+  --mandate:#E9A13B;
+  --guidance:#4FB3A6;
+  --none:#6E86A8;
+  --inert:#24404F;
+  --display:'Fraunces',Georgia,serif;
+  --body:'Public Sans',Arial,Helvetica,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:var(--body);font-weight:300;font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+a{color:var(--guidance)}
+
+/* ---------- masthead ---------- */
+.mast{padding:56px 0 34px;border-bottom:1px solid var(--line)}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--mandate);margin:0 0 22px;display:flex;align-items:center;gap:12px;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line-strong)}
+h1{
+  font-family:var(--display);font-weight:300;font-variation-settings:'opsz' 144;
+  font-size:clamp(2.3rem,7vw,4.3rem);line-height:1.02;letter-spacing:-.02em;margin:0 0 4px;
+}
+h1 em{font-style:normal;font-weight:700;color:var(--mandate)}
+.standfirst{
+  max-width:56ch;margin:20px 0 0;font-size:1.06rem;color:var(--muted);line-height:1.62;
+}
+.standfirst strong{color:var(--ink);font-weight:600}
+
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  margin:38px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fig{background:var(--ground);padding:20px 16px 18px}
+.fig b{display:block;font-family:var(--display);font-weight:500;font-size:clamp(1.7rem,4.4vw,2.5rem);
+  line-height:1;letter-spacing:-.02em}
+.fig span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--muted);margin-top:9px;line-height:1.45}
+
+/* ---------- deadline rail ---------- */
+.rail-sec{padding:44px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:0 0 6px}
+.sec-head h2{font-family:var(--display);font-weight:500;font-size:1.5rem;letter-spacing:-.01em;margin:0}
+.sec-head p{margin:0;color:var(--muted);font-size:.9rem}
+.rail{display:flex;gap:0;overflow-x:auto;margin:26px -22px 0;padding:0 22px 18px;
+  scroll-snap-type:x proximity}
+.rail::-webkit-scrollbar{height:4px}
+.rail::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:4px}
+.stop{flex:0 0 auto;width:186px;padding:0 20px 0 0;scroll-snap-align:start;position:relative}
+.stop::before{content:"";position:absolute;left:0;top:11px;right:0;height:1px;background:var(--line-strong)}
+.stop i{position:absolute;left:0;top:6px;width:11px;height:11px;border-radius:50%;
+  background:var(--ground);border:2px solid var(--mandate);display:block}
+.stop.done i{background:var(--mandate)}
+.stop.done .st-when{color:var(--mandate)}
+.stop .st-when{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);margin:26px 0 5px}
+.stop .st-who{display:block;font-family:var(--display);font-weight:500;font-size:1.06rem;margin-bottom:5px}
+.stop .st-what{display:block;font-size:.82rem;color:var(--muted);line-height:1.45;padding-right:8px}
+
+/* ---------- map ---------- */
+.map-sec{padding:40px 0 10px;border-top:1px solid var(--line);margin-top:30px}
+.controls{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:22px 0 4px}
+.chip{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  background:transparent;color:var(--muted);border:1px solid var(--line-strong);
+  padding:8px 13px;border-radius:2px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  transition:border-color .18s,color .18s,background .18s;
+}
+.chip:hover{color:var(--ink);border-color:var(--line-strong)}
+.chip .sw{width:9px;height:9px;border-radius:50%;display:inline-block}
+.chip[aria-pressed="true"]{background:var(--panel);color:var(--ink);border-color:var(--line-strong)}
+.chip.off{opacity:.38}
+#q{flex:1;min-width:150px;background:var(--panel);border:1px solid var(--line-strong);color:var(--ink);
+  font-family:var(--body);font-size:.9rem;padding:9px 13px;border-radius:2px}
+#q::placeholder{color:var(--muted)}
+#q:focus,.chip:focus-visible,.sm:focus-visible,path:focus-visible{outline:2px solid var(--mandate);outline-offset:2px}
+
+.stage{display:grid;grid-template-columns:1.32fr 1fr;gap:30px;align-items:start;margin-top:22px}
+.mapbox{position:relative}
+svg#us{width:100%;height:auto;aspect-ratio:1040/615;display:block;overflow:visible}
+svg#us path{
+  stroke:var(--ground);stroke-width:.9;cursor:pointer;
+  transition:fill .18s,opacity .18s;outline:none;
+}
+svg#us path:hover{fill:var(--ink)!important}
+svg#us path.sel{fill:var(--ink)!important;stroke:var(--ground);stroke-width:1.6}
+svg#us path.mute{opacity:.2}
+svg#us text{
+  font-family:var(--mono);font-size:9.5px;font-weight:500;fill:var(--ground);
+  pointer-events:none;text-anchor:middle;opacity:.72;
+}
+.smalls{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px}
+.sm{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;background:var(--panel);
+  border:1px solid var(--line);color:var(--muted);padding:6px 9px;border-radius:2px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px}
+.sm .sw{width:7px;height:7px;border-radius:50%}
+.sm:hover,.sm.sel{color:var(--ink);border-color:var(--line-strong)}
+.smalls-lab{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin:16px 0 0}
+
+/* ---------- detail ---------- */
+.detail{background:var(--panel);border:1px solid var(--line);border-radius:3px;
+  padding:26px 24px 28px;position:sticky;top:20px}
+.d-empty{color:var(--muted);font-size:.95rem}
+.d-empty b{display:block;font-family:var(--display);font-weight:500;font-size:1.25rem;
+  color:var(--ink);margin-bottom:9px}
+.d-badge{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:7px;padding:5px 10px;border-radius:2px;
+  background:var(--panel-2);margin-bottom:14px}
+.d-badge .sw{width:8px;height:8px;border-radius:50%}
+.detail h3{font-family:var(--display);font-weight:500;font-size:2rem;letter-spacing:-.02em;
+  margin:0 0 3px;line-height:1.05}
+.d-doc{font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.55;
+  margin:0 0 18px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.d-dead{display:block;color:var(--mandate);margin-top:7px}
+.detail ul{margin:0 0 20px;padding:0;list-style:none}
+.detail li{position:relative;padding-left:18px;margin-bottom:11px;font-size:.93rem;line-height:1.56;color:#CFDDE6}
+.detail li::before{content:"";position:absolute;left:0;top:.66em;width:6px;height:1px;background:var(--none)}
+.d-block{border-left:2px solid var(--mandate);padding:2px 0 2px 15px;margin:0 0 20px}
+.d-block .lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--mandate);display:block;margin-bottom:6px}
+.d-block p{margin:0;font-size:.95rem;line-height:1.55}
+.d-he{background:var(--panel-2);padding:16px 17px;border-radius:2px}
+.d-he .lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--guidance);display:block;margin-bottom:7px}
+.d-he p{margin:0;font-size:.93rem;line-height:1.55}
+
+/* ---------- patterns ---------- */
+.pat-sec{padding:56px 0 10px;border-top:1px solid var(--line);margin-top:46px}
+.pats{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:1px;
+  background:var(--line);margin-top:28px;border:1px solid var(--line)}
+.pat{background:var(--ground);padding:24px 22px 26px}
+.pat .n{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--mandate);
+  display:block;margin-bottom:12px}
+.pat h4{font-family:var(--display);font-weight:500;font-size:1.2rem;margin:0 0 10px;line-height:1.2}
+.pat p{margin:0 0 12px;font-size:.9rem;color:var(--muted);line-height:1.56}
+.pat .who{font-family:var(--mono);font-size:10.5px;color:var(--guidance);letter-spacing:.05em}
+
+/* ---------- close ---------- */
+.close-sec{padding:56px 0 20px;border-top:1px solid var(--line);margin-top:46px}
+.close-sec blockquote{margin:0;font-family:var(--display);font-weight:300;
+  font-size:clamp(1.3rem,3.4vw,1.95rem);line-height:1.3;letter-spacing:-.01em;max-width:26ch}
+.close-sec blockquote em{font-style:normal;color:var(--mandate);font-weight:500}
+.close-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:38px;align-items:start;margin-top:8px}
+.close-grid ol{margin:0;padding:0;counter-reset:c;list-style:none}
+.close-grid li{counter-increment:c;position:relative;padding-left:40px;margin-bottom:20px;
+  font-size:.96rem;line-height:1.6;color:#CFDDE6}
+.close-grid li::before{content:counter(c,decimal-leading-zero);position:absolute;left:0;top:1px;
+  font-family:var(--mono);font-size:11px;color:var(--mandate);letter-spacing:.08em}
+.close-grid li b{color:var(--ink);font-weight:600}
+
+footer{border-top:1px solid var(--line);margin-top:48px;padding:28px 0 60px;
+  font-family:var(--mono);font-size:11px;line-height:1.9;color:var(--muted);letter-spacing:.03em}
+footer a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line-strong)}
+footer a:hover{color:var(--ink)}
+.note{margin-top:14px;color:var(--none);max-width:70ch;letter-spacing:0;font-family:var(--body);
+  font-size:.85rem;line-height:1.6}
+
+@media(max-width:900px){
+  .stage{grid-template-columns:1fr;gap:22px}
+  .detail{position:static}
+  .figures{grid-template-columns:repeat(2,1fr)}
+  .close-grid{grid-template-columns:1fr;gap:26px}
+  .mast{padding:40px 0 28px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="mast">
+    <p class="eyebrow">K-12 policy &rarr; higher ed blind spot</p>
+    <h1>The states already<br>wrote the <em>rules</em>.</h1>
+    <p class="standfirst">Thirty-six states have issued AI guidance for their public schools. Nine have passed statutes, seven of which force every district to adopt its own policy, with deadlines that have already started to pass. <strong>High schools built the vocabulary for AI in the classroom while higher education was still debating whether to allow it.</strong> Click any state to see what its graduates were taught.</p>
+    <div class="figures">
+      <div class="fig"><b>36</b><span>States with a state-level<br>AI framework or guidance</span></div>
+      <div class="fig"><b>9</b><span>States with enacted<br>AI education statutes</span></div>
+      <div class="fig"><b>134</b><span>AI-in-education bills<br>filed in 2026</span></div>
+      <div class="fig"><b>2029</b><span>PISA first assesses<br>AI literacy</span></div>
+    </div>
+  </header>
+
+  <section class="rail-sec">
+    <div class="sec-head">
+      <h2>The compliance clock</h2>
+      <p>Enacted mandates, in the order they bite.</p>
+    </div>
+    <div class="rail" id="rail"></div>
+  </section>
+
+  <section class="map-sec">
+    <div class="sec-head">
+      <h2>Fifty states, four postures</h2>
+      <p>Select a state for its framework, its statute, and what it means for your classroom.</p>
+    </div>
+
+    <div class="controls">
+      <button class="chip" data-f="mandate" aria-pressed="false"><span class="sw" style="background:var(--mandate)"></span>Enacted mandate</button>
+      <button class="chip" data-f="guidance" aria-pressed="false"><span class="sw" style="background:var(--guidance)"></span>Guidance issued</button>
+      <button class="chip" data-f="pending" aria-pressed="false"><span class="sw" style="background:var(--none)"></span>No state framework</button>
+      <input id="q" type="search" placeholder="Search a state" autocomplete="off" aria-label="Search for a state">
+    </div>
+
+    <div class="stage">
+      <div class="mapbox">
+        <svg id="us" viewBox="-62 0 1040 615" role="group" aria-label="Map of United States AI education policy by state"></svg>
+        <p class="smalls-lab">Also on the map</p>
+        <div class="smalls" id="smalls"></div>
+      </div>
+
+      <div class="detail" id="detail">
+        <div class="d-empty">
+          <b>Start anywhere.</b>
+          Ohio's deadline has passed. Tennessee wrote higher education into its statute in 2024. Georgia gave every assignment a traffic light. Texas has no state guidance at all and its largest district is opening nine AI schools.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pat-sec">
+    <div class="sec-head">
+      <h2>Five moves worth stealing</h2>
+      <p>The patterns that recur across state documents, and where they were done best.</p>
+    </div>
+    <div class="pats">
+      <div class="pat">
+        <span class="n">PATTERN 01</span>
+        <h4>The scaffolded use scale</h4>
+        <p>Not a course-level yes or no, but a per-assignment level that names exactly how much AI is permitted and what the student must disclose. This is the single most transferable artifact in the entire dataset.</p>
+        <span class="who">Georgia · New Mexico · Washington · Louisiana · Oklahoma · Wyoming</span>
+      </div>
+      <div class="pat">
+        <span class="n">PATTERN 02</span>
+        <h4>Human oversight as a hard floor</h4>
+        <p>Named prohibitions rather than principles. AI may not set IEP goals, evaluate educators, apply subjective grades, or serve as the primary basis for discipline or placement decisions.</p>
+        <span class="who">Georgia · Oklahoma · Idaho · South Carolina (proposed)</span>
+      </div>
+      <div class="pat">
+        <span class="n">PATTERN 03</span>
+        <h4>Detection tools rejected</h4>
+        <p>Multiple states advise against AI detectors on grounds of unreliability and punitive effect, and redirect toward disclosure norms and process-oriented assessment instead.</p>
+        <span class="who">Hawaii · Massachusetts</span>
+      </div>
+      <div class="pat">
+        <span class="n">PATTERN 04</span>
+        <h4>Developmental gating</h4>
+        <p>Access tied to grade band rather than granted uniformly, on the argument that AI literacy depends on content mastery a student has to build first.</p>
+        <span class="who">Vermont · Rhode Island · North Dakota · New Mexico</span>
+      </div>
+      <div class="pat">
+        <span class="n">PATTERN 05</span>
+        <h4>The opt-out question</h4>
+        <p>A parent may withdraw a student from AI tools without academic penalty. Almost no institution has answered what a student who declines actually receives instead.</p>
+        <span class="who">Oklahoma · Illinois (proposed) · South Carolina (proposed)</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="close-sec">
+    <div class="close-grid">
+      <blockquote>Your incoming class has read a policy on this. <em>Has your syllabus?</em></blockquote>
+      <ol>
+        <li><b>Tennessee already covers you.</b> Public Chapter 550 required universities, not only districts, to adopt AI policies. The next state to copy it will do the same.</li>
+        <li><b>The scaffolded scale solves the syllabus problem.</b> Faculty keep writing paragraphs where a five-level scale would do. Six states have already built and tested one.</li>
+        <li><b>Incoming baselines will diverge sharply.</b> A Vermont student had gated, structured AI exposure from grade three. A Texas student's experience depended entirely on which district they attended.</li>
+        <li><b>The governance vocabulary already exists.</b> Tool vetting rubrics, vendor data clauses, AI coordinators, assurance labs. Higher ed is rebuilding all of it from scratch.</li>
+        <li><b>Watch South Carolina and New York.</b> One tests the strictest guardrails in the country. The other tests whether a state will set a floor age for classroom AI at all.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    Compiled July 2026 · Sources: <a href="https://www.aiforeducation.io/ai-resources/state-ai-guidance">AI for Education state guidance compilation</a> · <a href="https://www.future-ed.org/legislative-tracker-2026-state-ai-in-education-bills/">FutureEd 2026 legislative tracker</a> · <a href="https://www.multistate.us/insider/2026/4/9/how-states-are-regulating-ai-in-education-this-legislative-session">MultiState</a> · <a href="https://www.k12dive.com/news/4-more-states-require-districts-to-adopt-ai-policies/824749/">K-12 Dive</a> · <a href="https://www.nasbe.org/states-take-next-steps-on-governing-ai-use-in-schools/">NASBE</a> · <a href="https://ballotpedia.org/AI_guidance_issued_by_state_departments_of_education">Ballotpedia</a>
+    <p class="note">Legislative status changes weekly. States marked <em>no state framework</em> include both states with active bills and states where no department guidance was confirmed in this pass — verify with the state education agency before citing an absence. Several entries flagged for verification are noted in the state panel.</p>
+  </footer>
+
+</div>
+
+<script>
+const STATES = __DATA__;
+const PATHS = __PATHS__;
+const SMALL = ["Rhode Island","Delaware","District of Columbia","Connecticut","New Jersey","Massachusetts","New Hampshire","Vermont","Maryland"];
+const COLOR = {mandate:"#E9A13B", guidance:"#4FB3A6", pending:"#6E86A8"};
+const LABEL = {mandate:"Enacted mandate", guidance:"Guidance issued", pending:"No state framework"};
+
+const RAIL = [
+  {when:"2024-25 school year", who:"Tennessee", what:"Districts, charters and universities adopt AI policies. Annual report to the state each July.", done:true},
+  {when:"July 1, 2026", who:"Ohio", what:"Board-approved AI policy required in all 600-plus districts.", done:true},
+  {when:"Before 2026-27", who:"Georgia", what:"District implementation plans aligned to the statewide framework.", done:false},
+  {when:"In effect now", who:"Oklahoma", what:"Educator supervision and human review requirements already binding.", done:true},
+  {when:"Now", who:"Maryland", what:"Every local school system designates a central-office AI coordinator.", done:true},
+  {when:"June 1, 2027", who:"Maryland", what:"AI literacy written into state content standards.", done:false},
+  {when:"Before 2027-28", who:"Oklahoma", what:"Written district AI policy, with parent opt-out and annual tool disclosure.", done:false},
+  {when:"Class of 2032", who:"Alabama", what:"Computer science course including AI instruction required to graduate.", done:false}
+];
+
+/* ---- deadline rail ---- */
+document.getElementById('rail').innerHTML = RAIL.map(r =>
+  `<div class="stop${r.done?' done':''}"><i></i>
+    <span class="st-when">${r.when}</span>
+    <span class="st-who">${r.who}</span>
+    <span class="st-what">${r.what}</span>
+  </div>`).join('');
+
+/* ---- map ---- */
+const svg = document.getElementById('us');
+const NS = "http://www.w3.org/2000/svg";
+const nodes = {};
+Object.keys(PATHS).forEach(name => {
+  const st = STATES[name];
+  if(!st) return;
+  const p = document.createElementNS(NS,'path');
+  p.setAttribute('d', PATHS[name]);
+  p.setAttribute('fill', COLOR[st.status]);
+  p.setAttribute('tabindex','0');
+  p.setAttribute('role','button');
+  p.setAttribute('aria-label', name + ', ' + LABEL[st.status]);
+  p.dataset.name = name;
+  svg.appendChild(p);
+  nodes[name] = p;
+});
+/* abbreviation labels for the larger states */
+function placeLabels(){
+  svg.querySelectorAll('text').forEach(t => t.remove());
+  Object.keys(nodes).forEach(name => {
+    if(SMALL.includes(name)) return;
+    let b; try { b = nodes[name].getBBox(); } catch(e){ return; }
+    if(!b || b.width < 26 || b.height < 17) return;
+    const t = document.createElementNS(NS,'text');
+    t.setAttribute('x', (b.x + b.width/2).toFixed(1));
+    t.setAttribute('y', (b.y + b.height/2 + 3.4).toFixed(1));
+    t.textContent = STATES[name].ab;
+    svg.appendChild(t);
+  });
+}
+placeLabels();
+/* if the frame was hidden at load, getBBox returns nothing usable - retry once visible */
+if(!svg.querySelector('text')){
+  if(window.requestAnimationFrame) requestAnimationFrame(placeLabels);
+  setTimeout(placeLabels, 400);
+}
+
+/* ---- small-state rail ---- */
+document.getElementById('smalls').innerHTML = SMALL.map(n =>
+  `<button class="sm" data-name="${n}"><span class="sw" style="background:${COLOR[STATES[n].status]}"></span>${STATES[n].ab}</button>`
+).join('');
+
+/* ---- detail panel ---- */
+const detail = document.getElementById('detail');
+let current = null;
+
+function show(name){
+  const s = STATES[name];
+  if(!s) return;
+  current = name;
+  Object.values(nodes).forEach(n => n.classList.remove('sel'));
+  if(nodes[name]) nodes[name].classList.add('sel');
+  document.querySelectorAll('.sm').forEach(b => b.classList.toggle('sel', b.dataset.name === name));
+
+  detail.innerHTML = `
+    <span class="d-badge"><span class="sw" style="background:${COLOR[s.status]}"></span>${LABEL[s.status]}</span>
+    <h3>${name}</h3>
+    <p class="d-doc">${s.doc}${s.deadline ? `<span class="d-dead">&#9656; ${s.deadline}</span>` : ''}</p>
+    <ul>${s.points.map(p => `<li>${p}</li>`).join('')}</ul>
+    ${s.sig ? `<div class="d-block"><span class="lab">Signature move</span><p>${s.sig}</p></div>` : ''}
+    <div class="d-he"><span class="lab">What this means for higher ed</span><p>${s.he}</p></div>
+  `;
+  if(window.innerWidth < 900){
+    detail.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth', block:'start'});
+  }
+}
+
+svg.addEventListener('click', e => { if(e.target.dataset.name) show(e.target.dataset.name); });
+svg.addEventListener('keydown', e => {
+  if((e.key === 'Enter' || e.key === ' ') && e.target.dataset.name){ e.preventDefault(); show(e.target.dataset.name); }
+});
+document.getElementById('smalls').addEventListener('click', e => {
+  const b = e.target.closest('.sm'); if(b) show(b.dataset.name);
+});
+
+/* ---- filters ---- */
+const active = new Set();
+function applyFilter(){
+  const term = document.getElementById('q').value.trim().toLowerCase();
+  Object.entries(nodes).forEach(([name, node]) => {
+    const s = STATES[name];
+    const passStatus = active.size === 0 || active.has(s.status);
+    const passTerm = !term || name.toLowerCase().includes(term) || s.ab.toLowerCase() === term;
+    node.classList.toggle('mute', !(passStatus && passTerm));
+  });
+  document.querySelectorAll('.sm').forEach(b => {
+    const s = STATES[b.dataset.name];
+    const passStatus = active.size === 0 || active.has(s.status);
+    const passTerm = !term || b.dataset.name.toLowerCase().includes(term) || s.ab.toLowerCase() === term;
+    b.classList.toggle('off', !(passStatus && passTerm));
+  });
+}
+document.querySelectorAll('.chip').forEach(c => {
+  c.addEventListener('click', () => {
+    const f = c.dataset.f;
+    if(active.has(f)){ active.delete(f); c.setAttribute('aria-pressed','false'); }
+    else { active.add(f); c.setAttribute('aria-pressed','true'); }
+    applyFilter();
+  });
+});
+document.getElementById('q').addEventListener('input', e => {
+  applyFilter();
+  const term = e.target.value.trim().toLowerCase();
+  if(term.length > 2){
+    const hit = Object.keys(STATES).find(n => n.toLowerCase().startsWith(term));
+    if(hit) show(hit);
+  }
+});
+</script>
+</body>
+</html>
