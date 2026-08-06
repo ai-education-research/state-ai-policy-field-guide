@@ -23,3 +23,9 @@ Checked 2026-07-29 (agent pass, every URL fetched).
 - notes: CourtListener 403s; news articles do not publish a case number. Facts confirmed via news: nine current/former Lawrence and Free State HS students; First/Fourth Amendment + Kansas Student Publications Act claims over Gaggle AI monitoring; district ceased Gaggle Oct 2025, switched to ManagedMethods; amended complaint Nov 2025 added KORA claims; April 2026 KORA violation finding; June 2026 attorney-fee order.
 - Key news URLs: https://lawrencekstimes.com/2025/08/01/usd497-gaggle-lawsuit-filed/ and https://www2.ljworld.com/news/schools/2026/jun/04/federal-judge-orders-lawrence-school-district-to-pay-attorney-fees-to-students-in-gaggle-case-after-kora-violations/
 - **Note:** the dataset's headline fee figure ($113,480, July 27 2026) comes from a later Lawrence Times article not re-fetched here — verify the exact figure and date before publishing.
+
+## Web captures — exposure evidence (added 2026-07-31)
+
+- `web-captures/LawrenceTimes-2025-08-01-Gaggle-lawsuit-filed.{html,txt}` — Lawrence Times, retrieved 2026-07-31
+- `web-captures/LJWorld-2026-06-04-attorney-fees-ruling.{html,txt}` — Lawrence Journal-World, retrieved 2026-07-31
+- notes: Two independent outlets confirm: nine current and former Lawrence High and Free State High students filed a federal civil rights suit (August 2025) over the district's Gaggle AI surveillance of its Google Workspace, alleging First and Fourth Amendment violations. District bought Gaggle Aug 2023, $162,000 over three years, later switching to ManagedMethods. U.S. District Judge Kathryn Vratil found KORA violations in bad faith (April 2026) and ordered the district to pay $113K in attorney fees (June-July 2026 rulings). SPLC named four student journalists 2024 Courage in Student Journalism finalists; the Kansas Scholastic Press Association gave them its Courage in Journalism Awards. Court filings themselves not yet captured.

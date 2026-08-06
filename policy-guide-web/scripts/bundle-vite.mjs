@@ -25,4 +25,8 @@ fs.writeFileSync(output, html)
 const releaseDir = path.join(root, 'release')
 fs.mkdirSync(releaseDir, {recursive:true})
 fs.writeFileSync(path.join(releaseDir, 'index.html'), html)
-console.log(`Bundled ${Math.round(fs.statSync(output).size / 1024)} KB to bundle.html and release/index.html`)
+// Keep the published GitHub Pages copy in lockstep so the live site cannot go
+// stale while the repo looks current. docs/index.html is what Pages serves.
+const docsDir = path.join(root, '..', 'docs')
+if (fs.existsSync(docsDir)) fs.writeFileSync(path.join(docsDir, 'index.html'), html)
+console.log(`Bundled ${Math.round(fs.statSync(output).size / 1024)} KB to bundle.html, release/index.html${fs.existsSync(docsDir) ? ', and ../docs/index.html' : ''}`)

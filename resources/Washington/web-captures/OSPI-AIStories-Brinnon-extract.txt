@@ -1,0 +1,10 @@
+ARCHIVAL EXTRACT 2026-07-31 (content extracted via rendered fetch; raw HTML not retrievable by curl)
+URL: https://medium.com/waospi/small-school-big-ideas-the-transformative-use-of-ai-in-brinnon-school-district-465358cffeb7
+Publisher: OSPI official Medium channel (waospi), "AI Stories" series
+
+Facts extracted:
+- Brinnon School District, rural WA, approx. 80 students (Superintendent Trish Beathard, quoted).
+- Students design 3D dragon models using Blender; 3D printer planned for student use.
+- Jake Rember, Director of Special Education and Technology, creates AI-generated coloring sheets and custom art projects for students with disabilities; AI-personalized state-compliant assessments.
+- Rember quotes: "They're getting used to failing and moving past the point of failure while building these models." / "Giving teachers access to the ability to rapidly tailor education for the personal needs of a student is transformative."
+- Smart panels via Digital Equity and Inclusion Grants.

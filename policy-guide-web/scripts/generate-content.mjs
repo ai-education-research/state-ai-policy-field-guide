@@ -141,6 +141,105 @@ function posture(authority = '') {
   return 'guidance'
 }
 
+// Exposure evidence. What students in each state are verifiably already doing
+// with AI, as opposed to what policy says they should do. Hand-curated from
+// exposure-candidates.md, where every item carries its mining and verification
+// trail. The filter: a report of something happening qualifies, a recommendation
+// that something happen does not. States absent from this map yielded nothing
+// that passed the filter, and their block does not render.
+const EXPOSURE_EVIDENCE = {
+  'Iowa': [
+    { kind: 'practice', featured: true,
+      fact: 'The state spent 3 million dollars to put an AI reading tutor into every public and nonpublic elementary school. As students read aloud, a digital avatar named Amira listens, assesses, and intervenes when a student struggles.',
+      source: 'Iowa Department of Education press release, August 27, 2024. Archived in the project corpus.',
+      caveat: 'Iowa has published no classroom AI guidance. Its youngest students were taught by AI before anyone taught them about it.' }
+  ],
+  'Ohio': [
+    { kind: 'practice', featured: true,
+      fact: 'In Butler Tech’s advanced manufacturing labs, students work with AI-infused robots, learning programming, data collection, and how to integrate software with physical equipment.',
+      source: 'Ohio AI in Education Coalition, AI in Education Strategy, spotlight example, p.20.' },
+    { kind: 'stat',
+      fact: '72% of Ohio students polled want guidance on how to responsibly use AI tools for schoolwork.',
+      source: 'Ohio AI in Education Coalition, AI in Education Strategy, p.14.' }
+  ],
+  'Rhode Island': [
+    { kind: 'voice', featured: true, quote: true,
+      fact: 'There is nothing more frustrating than when I know a kid used AI to write a paper and received an equal or better grade than me.',
+      source: 'Rhode Island student, quoted in RIDE AI Guidance, August 2025, p.10.' },
+    { kind: 'stat',
+      fact: '20% of Rhode Island students are using AI for schoolwork. Only 6% of their educators and administrators use it in their own work.',
+      source: 'RIDE stakeholder survey, RIDE AI Guidance, p.10.' },
+    { kind: 'practice',
+      fact: 'Students are using Grammarly, ChatGPT, and PhotoMath for writing, research, and step-by-step problem solving in math.',
+      source: 'RIDE AI Guidance, p.10.' },
+    { kind: 'stat',
+      fact: '36% of students surveyed say AI helps them learn more when completing an assignment. 78% of educators have substantial concerns about students’ ethical use.',
+      source: 'RIDE stakeholder survey, RIDE AI Guidance, p.10.' }
+  ],
+  'Arizona': [
+    { kind: 'stat', featured: true,
+      fact: 'Surveyed Arizona high school students tend to prefer teachers, not AI, to provide guidance, feedback, and grades.',
+      source: 'Peer-led student survey, AIEE 2026, cited in the NAU guidance, p.27.' },
+    { kind: 'practice',
+      fact: 'The state’s 2026 guidance was itself shaped by a peer-led survey of Arizona high school students.',
+      source: 'NAU/AIEE Generative AI Guidance, p.6.' }
+  ],
+  'Vermont': [
+    { kind: 'practice',
+      fact: 'Every Vermont school runs on the Google for Education platform, where Gemini and NotebookLM are free and Gemini is built into Classroom and Docs. Exposure is the default environment, not an adoption decision.',
+      source: 'Vermont AOE AI Guidance, p.34.' }
+  ],
+  'Colorado': [
+    { kind: 'voice', quote: true,
+      fact: 'I use it to help learn languages by having a back and forth verbal conversation with the AI in a foreign language, asking lots of questions to nurture curiosity.',
+      source: 'Colorado student, quoted in the CDE Roadmap for AI in K-12 Education, p.11.' },
+    { kind: 'voice', quote: true,
+      fact: 'I think a key part of using AI as a student is using it as a tool. Creating things like flashcards based off your notes. Sort of helping you be more efficient at a particular task.',
+      source: 'Colorado student, quoted in the CDE Roadmap, p.11. One of five attributed student voices in the document.' }
+  ],
+  'Connecticut': [
+    { kind: 'practice',
+      fact: 'State law directed the education department to run an AI education tool pilot program in a limited number of schools by the end of the 2024-25 school year, with educator professional development.',
+      source: 'Public Act 24-151, sections 143 and 144. Whether and where the pilot ran is not yet confirmed.' }
+  ],
+  'Indiana': [
+    { kind: 'practice',
+      fact: 'The state ran an AI-Powered Platform Pilot Grant in 2023-24 and published the final report, with teacher feedback data and vendor data. A spotlight series shares strategies from administrators, teachers, and students across Indiana.',
+      source: 'Indiana Department of Education digital learning page, archived in the project corpus.' }
+  ],
+  'Kansas': [
+    { kind: 'lived', featured: true,
+      fact: 'Nine current and former Lawrence students filed a federal civil rights lawsuit over the district’s use of Gaggle, the AI system scanning everything in the district’s Google Workspace. A federal judge has already ordered the district to pay 113,000 dollars in the students’ attorney fees over open-records violations in the case.',
+      source: 'As reported by the Lawrence Times (August 2025) and Lawrence Journal-World (June 2026), both archived. The merits case is pending. Court filings not yet captured, so this is reported, not court record.',
+      caveat: 'Kansas has published no classroom AI guidance. Some of its students’ deepest AI experience is being monitored by one, and organizing litigation against it.' }
+  ],
+  'Kentucky': [
+    { kind: 'practice',
+      fact: 'AI-based challenges in the Student Technology Leadership Program ask students to demonstrate their AI skills responsibly.',
+      source: 'KDE AI Guidance Brief, Policy-in-Action Spotlight.' }
+  ],
+  'North Carolina': [
+    { kind: 'stat',
+      fact: '72% of teens have used AI companions, and 52% use them multiple times a month. This is national data that North Carolina teaches its educators, paired with a strong discouragement of companion AI for anyone under 18.',
+      source: 'Common Sense Media, cited in NCDPI Generative AI Recommendations, p.19.' }
+  ],
+  'Nevada': [
+    { kind: 'artifact',
+      fact: 'The state publishes a one-page student poster. Its first rule reads, use AI as an assistant, not a substitute, and if AI helps generate ideas or content, inform your teacher.',
+      source: 'NDE, AI Best Practices for Students. Captured in the project corpus.' }
+  ],
+  'Puerto Rico': [
+    { kind: 'artifact',
+      fact: 'The education department publishes an entire AI manual written for students, the Manual de IA para Estudiantes.',
+      source: 'DEPR, 2026. Captured in the project corpus.' }
+  ],
+  'Washington': [
+    { kind: 'practice',
+      fact: 'In Brinnon School District, a rural district of about 80 students, kids design 3D dragon models in Blender and teachers build AI-personalized assessments. The special education director says the students are getting used to failing and moving past the point of failure.',
+      source: 'OSPI AI Stories series, official channel. Extract archived in the project corpus.' }
+  ]
+}
+
 const stateFiles = fs.readdirSync(analysisDir)
   .filter(name => name.endsWith('.md') && !name.startsWith('_'))
   .sort((a,b) => a.localeCompare(b))
@@ -167,6 +266,7 @@ const states = stateFiles.map(filename => {
     provenance: {status: led.status, documents: led.documents || [], checkedOn: led.checkedOn || null, note: led.note || null},
     summary: stripApparatus(firstParagraph(s['Executive Summary'])),
     graduateProfile: graduateProfile(stripApparatus(s['Expected Graduate AI Profile'])),
+    exposure: EXPOSURE_EVIDENCE[name] || [],
     instrument: meta.instrument,
     detector: meta.detector,
     offloading: meta.offloading,

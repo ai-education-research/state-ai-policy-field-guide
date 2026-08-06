@@ -17,6 +17,15 @@ export interface Provenance {
   note: string | null
 }
 
+export interface ExposureItem {
+  kind: 'stat' | 'practice' | 'voice' | 'artifact' | 'lived'
+  fact: string
+  source: string
+  quote?: boolean
+  featured?: boolean
+  caveat?: string
+}
+
 export interface StateProfile {
   name: string
   abbreviation: string
@@ -25,6 +34,7 @@ export interface StateProfile {
   provenance: Provenance
   summary: string
   graduateProfile: string[]
+  exposure: ExposureItem[]
   instrument: string
   detector: string
   offloading: string

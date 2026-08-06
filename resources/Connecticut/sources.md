@@ -11,3 +11,8 @@ Checked 2026-07-29 (agent pass, every URL fetched).
 - link_status: verified-page
 - downloaded: [ ]
 - notes: Web-native guidance with no downloadable PDF. Seven sections confirmed: Introduction, Types and Applications, Instructional and Decision-Making Best Practices, Risks, Policy and Guidance, Resources, Acknowledgements, with Digital Learning Advisory Council acknowledgements. To capture an original, print to PDF and date-stamp. The issuing body matters — this is the state edtech commission under DAS, not the education agency, which affects how the map should attribute it.
+
+## Web captures — exposure evidence (added 2026-07-31)
+
+- `web-captures/CT-EdTech-Commission-AI-page.{html,txt}` — retrieved 2026-07-31
+- notes: Public Act 24-151 directed CSDE to create an AI education tool pilot program in a limited number of schools by end of 2024-25, with educator PD (secs. 143-144). Whether and where the pilot ran is unconfirmed.

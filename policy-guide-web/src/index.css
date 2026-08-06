@@ -67,6 +67,33 @@ body{background:var(--ground,var(--paper));color:var(--ink);font-family:var(--bo
 .prov-dot.none{background:var(--blue)}
 @media(max-width:900px){.prov-summary{grid-template-columns:1fr}}
 
+/* Exposure evidence — what students are already doing */
+.exposure-section{padding:10px 0 50px;border-bottom:1px solid var(--line);scroll-margin-top:100px}
+.exposure-section>.eyebrow{margin-top:30px}
+.exposure-section h2{font:500 30px/1.2 var(--display);letter-spacing:-.02em;margin:0 0 22px}
+.xpo-list{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.xpo-item{background:var(--navy-2);padding:22px 26px;border-left:3px solid var(--teal)}
+.xpo-item.voice{border-left-color:var(--amber)}
+.xpo-item.lived{border-left-color:var(--blue)}
+.xpo-kind{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--teal);margin-bottom:10px}
+.xpo-item.voice .xpo-kind,.xpo-card.voice .xpo-kind{color:var(--amber)}
+.xpo-item.lived .xpo-kind,.xpo-card.lived .xpo-kind{color:var(--blue)}
+.xpo-fact{margin:0;color:var(--ink);font-size:16px;line-height:1.62;max-width:76ch}
+blockquote.xpo-fact{font-family:var(--display);font-size:19px;line-height:1.5;padding:0;border:0}
+.xpo-caveat{margin:10px 0 0;color:var(--amber);font-size:13.5px;line-height:1.6;max-width:76ch}
+.xpo-source{margin:12px 0 0;font-family:var(--mono);font-size:10.5px;line-height:1.6;color:var(--muted);letter-spacing:.03em;max-width:86ch}
+.xpo-band{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
+.xpo-card{background:var(--navy-2);border:0;color:inherit;font:inherit;text-align:left;padding:28px 30px;cursor:pointer;display:grid;align-content:start;gap:12px;border-left:3px solid var(--teal)}
+.xpo-card.voice{border-left-color:var(--amber)}
+.xpo-card.lived{border-left-color:var(--blue)}
+.xpo-card:hover{background:var(--panel-2)}
+.xpo-card-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.xpo-card-top b{font:500 19px/1 var(--display);color:var(--ink)}
+.xpo-card p{margin:0;color:#CFDDE6;font-size:14.5px;line-height:1.62}
+.xpo-card blockquote{margin:0;padding:0;border:0;font-family:var(--display);font-size:18px;line-height:1.5;color:var(--ink)}
+.xpo-open{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:7px;margin-top:6px}
+@media(max-width:860px){.xpo-band{grid-template-columns:1fr}}
+
 /* Identity slots — what this is, and when it was true */
 .hero-what{border-left:2px solid var(--teal);padding-left:18px;margin:26px 0 0;color:var(--ink);font-size:17px;line-height:1.6;max-width:64ch}
 .record-line{margin:30px 0 0;padding-top:22px;border-top:1px solid var(--line);max-width:64ch;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted)}

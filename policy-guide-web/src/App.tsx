@@ -8,7 +8,7 @@ import {
 } from 'lucide-react'
 import contentJson from './generated/content.json'
 import pathsJson from './generated/paths.json'
-import type { ExposurePoint, Framework, Instrument, Posture, Provenance, ProvenanceStatus, SiteContent, StateProfile } from './types'
+import type { ExposureItem, ExposurePoint, Framework, Instrument, Posture, Provenance, ProvenanceStatus, SiteContent, StateProfile } from './types'
 
 const content = contentJson as SiteContent
 const mapPaths = pathsJson as Record<string, string>
@@ -188,6 +188,8 @@ function Overview() {
       </div>
     </section>
 
+    <ExposureBand/>
+
     {okScale && <ScaleBlock instrument={okScale}/>}
 
     <HomeMap/>
@@ -231,6 +233,56 @@ function USMap({states, selected, onSelect}: {states:StateProfile[]; selected?:s
     </svg>
     <button className="territory-card" onClick={() => onSelect('Puerto Rico')}><span>PR</span><b>Puerto Rico</b><small>Territory-wide directive</small></button>
   </div>
+}
+
+const exposureKindMeta: Record<ExposureItem['kind'], string> = {
+  stat: 'Measured', practice: 'In practice', voice: 'Student voice',
+  artifact: 'Taught artifact', lived: 'Lived experience'
+}
+
+// What students in this state are verifiably already doing with AI. Reports of
+// practice, not recommendations. Renders only where the mining passes found
+// evidence, which is 14 of 52 jurisdictions. See exposure-candidates.md.
+function ExposureEvidence({state}: {state:StateProfile}) {
+  if (!state.exposure.length) return null
+  return <section className="exposure-section" id="section-exposure">
+    <p className="eyebrow">Already happening</p>
+    <h2>What {state.name} students are already doing</h2>
+    <div className="xpo-list">
+      {state.exposure.map((e,i) => <article key={i} className={`xpo-item ${e.kind}`}>
+        <span className="xpo-kind">{exposureKindMeta[e.kind]}</span>
+        {e.quote
+          ? <blockquote className="xpo-fact">“{e.fact}”</blockquote>
+          : <p className="xpo-fact">{e.fact}</p>}
+        {e.caveat && <p className="xpo-caveat">{e.caveat}</p>}
+        <p className="xpo-source">{e.source}</p>
+      </article>)}
+    </div>
+  </section>
+}
+
+// The national band for the front page: the strongest single item per featured state.
+function ExposureBand() {
+  const featured = content.states
+    .map(s => ({state: s, item: s.exposure.find(e => e.featured)}))
+    .filter((x): x is {state:StateProfile; item:ExposureItem} => !!x.item)
+  if (!featured.length) return null
+  return <section className="scale-section">
+    <div className="scale-head">
+      <p className="eyebrow">Already happening</p>
+      <div>
+        <h2>Students are not waiting for the policy.</h2>
+        <p>These are reports of practice from state documents and state-published sources, not recommendations. Fourteen jurisdictions carry evidence like this. Open a state for its full record.</p>
+      </div>
+    </div>
+    <div className="xpo-band">
+      {featured.map(({state, item}) => <button key={state.name} className={`xpo-card ${item.kind}`} onClick={() => routeTo(`states/${slug(state.name)}`)}>
+        <span className="xpo-card-top"><b>{state.name}</b><span className="xpo-kind">{exposureKindMeta[item.kind]}</span></span>
+        {item.quote ? <blockquote>“{item.fact}”</blockquote> : <p>{item.fact}</p>}
+        <span className="xpo-open">Open the {state.name} record <ArrowRight size={14}/></span>
+      </button>)}
+    </div>
+  </section>
 }
 
 // What a student arriving from this state may already have been taught. This is the
@@ -315,6 +367,7 @@ function StateDetail({state}: {state:StateProfile}) {
     <div className="profile-layout">
       <aside className="profile-nav"><b>On this page</b>{Object.keys(stateSectionLabels).map(k=><button key={k} onClick={()=>document.getElementById(`section-${k}`)?.scrollIntoView()}>{stateSectionLabels[k]}</button>)}</aside>
       <div className="profile-content">
+        <ExposureEvidence state={state}/>
         <section className="profile-section">
           <p className="eyebrow">What {state.name} published</p>
           <p className="published-summary">{state.summary}</p>

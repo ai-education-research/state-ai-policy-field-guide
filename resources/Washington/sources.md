@@ -37,3 +37,8 @@ Checked 2026-07-29 (agent pass, every URL fetched).
 - landing_page: https://app.leg.wa.gov/billsummary?BillNumber=2225&Initiative=false&Year=2025
 - link_status: verified-pdf
 - notes: **Correction to data.js needed.** Enrolled text fetched: this bill regulates AI companion chatbots under Title 19 RCW (consumer protection), with minor-safety and suicidal-ideation-protocol provisions. The current data.js "he" text ("adds reporting requirements related to harmful behaviors") mis-scopes it as school legislation. Re-scope or drop.
+
+## Web captures — exposure evidence (added 2026-07-31)
+
+- `web-captures/OSPI-AIStories-Brinnon-extract.txt` — extract retrieved 2026-07-31 (Medium blocks raw capture)
+- notes: OSPI "AI Stories" series, official channel. Brinnon School District spotlight with named, quoted staff. Raw HTML unretrievable by curl; extract recorded.

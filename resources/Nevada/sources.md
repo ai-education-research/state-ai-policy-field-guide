@@ -29,3 +29,7 @@ Checked 2026-07-29 (agent pass, every URL fetched).
 - url: https://doe.nv.gov/news-media/2025-press-releases/nevada-department-of-education-announces-release-of-ai-ethics-document
 - link_status: verified-page
 - notes: Confirms the document title and the Nevada AI Alliance / Nevada Community Foundation partnership.
+
+## Retrieval update (added 2026-07-31)
+
+- `NDE-AI-Best-Practices-Students.pdf` and `NDE-AI-Related-Supports.pdf` downloaded 2026-07-31 from the ledger URLs above. The Best Practices document is a student-facing poster rendered as images (5 words of extractable text); read visually and recorded in exposure-candidates.md as NV-1.

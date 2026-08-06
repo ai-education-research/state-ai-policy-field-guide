@@ -28,3 +28,8 @@ Checked 2026-07-29 (agent pass, every URL fetched).
 - url: https://educate.iowa.gov/press-release/2024-08-27/iowa-department-education-launches-new-personalized-reading-tutor-iowa-schools-builds-upon-prior
 - link_status: verified-page
 - notes: $3 million, EPS Reading Assistant (voice-recognition AI), all Iowa public and nonpublic elementary schools free through summer 2025, ARP ESSER funded.
+
+## Web captures — exposure evidence (added 2026-07-31)
+
+- `web-captures/IDOE-2024-08-27-reading-tutor-press-release.{html,txt}` — retrieved 2026-07-31, primary (agency press release)
+- notes: $3M investment providing the Amira / EPS Reading Assistant AI reading tutor to all public and nonpublic elementary schools through summer 2025. Voice-recognition avatar listens to students read aloud and intervenes. First wave: 41 elementary schools in 29 districts via Summer Reading Grants.
