@@ -590,6 +590,35 @@ function Methodology() {
   </>
 }
 
+
+// Keep-current strip, sitewide above the footer. The site is a dated snapshot by
+// design, and this answers the question that fact raises. Show-level links only,
+// never episode links, so the list does not age.
+const PODCASTS = [
+  { name: 'ChatEDU, The AI and Education Podcast', by: 'Matt Mervis and Elizabeth Radday, EdAdvance. Weekly.',
+    url: 'https://podcasts.apple.com/us/podcast/chatedu-the-ai-education-podcast/id1728870840' },
+  { name: 'AI in Education Podcast', by: 'Dan Bowen and Ray Fleming. Weekly.',
+    url: 'https://podcasts.apple.com/us/podcast/ai-in-education-podcast/id1481311877' },
+  { name: 'Getting Smart Podcast', by: 'Getting Smart. Broader education innovation, with regular AI coverage.',
+    url: 'https://podcasts.apple.com/us/podcast/getting-smart-podcast/id1017984086' }
+]
+
+function StayCurrent() {
+  return <section className="stay-current" aria-label="Podcasts for staying current">
+    <div>
+      <p className="eyebrow">Stay current</p>
+      <h2>This site is a snapshot. These keep publishing.</h2>
+      <p>The research here is dated to July 2026. Policy and practice keep moving, and these shows track them.</p>
+    </div>
+    <div className="podcast-list">
+      {PODCASTS.map(pod => <a key={pod.url} href={pod.url} target="_blank" rel="noreferrer">
+        <b>{pod.name} <ExternalLink size={13}/></b>
+        <span>{pod.by}</span>
+      </a>)}
+    </div>
+  </section>
+}
+
 function App() {
   const route = useRoute()
   const parts = route.split('/')
@@ -604,7 +633,7 @@ function App() {
   else if (parts[0]==='readiness') view=<Readiness stateSlug={parts[1]}/>
   else if (parts[0]==='methodology') view=<Methodology/>
   else view=<Overview/>
-  return <div><Header route={route}/><main id="main" className="site-main">{view}</main><footer className="site-footer"><div><b>Overview of State AI Policy and What Higher Education Can Learn from It</b><p>Research current through July 2026. Legislative status and living guidance can change.</p></div><button onClick={()=>routeTo('methodology')}>Methodology and evidence</button></footer></div>
+  return <div><Header route={route}/><main id="main" className="site-main">{view}</main><StayCurrent/><footer className="site-footer"><div><b>Overview of State AI Policy and What Higher Education Can Learn from It</b><p>Research current through July 2026. Legislative status and living guidance can change.</p></div><button onClick={()=>routeTo('methodology')}>Methodology and evidence</button></footer></div>
 }
 
 export default App
