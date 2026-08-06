@@ -349,8 +349,8 @@ const instruments = [
 // `objection.draft: true` marks argument written for this site that does NOT exist
 // anywhere in the research corpus. It needs author approval before release.
 const exposure = {
-  headline: 'They spent four years under a written AI rule.',
-  headlineEm: 'Yours is the first one they cannot find.',
+  headline: 'Your students arrive with',
+  headlineEm: 'expectations about AI.',
   preshow: [
     'This is a diagnosis, not a checklist. Each point below names one thing your incoming students were taught to expect, one thing your syllabus or handbook probably does not say, and who the mismatch fails.',
     'Nothing here assumes every student arrived trained. Adoption varies by district and most K-12 guidance is voluntary, so you cannot tell which students were taught a rule and which were not. A syllabus that says nothing about AI fails both of them, in opposite directions. The trained student concludes your course expects less than her high school did. The untrained student concludes anything is allowed.'
