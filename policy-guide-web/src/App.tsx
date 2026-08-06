@@ -170,7 +170,7 @@ function Overview() {
     <section className="hero-section">
       <div className="hero-copy">
         <p className="eyebrow">A primary-source guide for university faculty and leaders</p>
-        <h1>Your incoming students have been <em>governed by AI policy</em> for three years.</h1>
+        <h1>Incoming university students have been <em>governed by AI policy</em> for three years.</h1>
         <p className="hero-what">This site documents the AI rules in all 52 US school systems and what they mean for university teaching.</p>
         <p className="hero-lede">State education agencies wrote leveled permission scales, disclosure conventions, and detector positions for the classroom. Universities receive the students those rules produced, then hand the question back to each individual instructor.</p>
         <div className="hero-actions">
@@ -562,13 +562,12 @@ function Methodology() {
     <section className="prov-table-wrap">
       <h2>All 52 jurisdictions</h2>
       <table className="prov-table">
-        <thead><tr><th>Jurisdiction</th><th>Rating</th><th>Documents held</th><th>What was checked</th></tr></thead>
+        <thead><tr><th>Jurisdiction</th><th>Rating</th><th>Documents held</th></tr></thead>
         <tbody>
           {content.states.map(s => <tr key={s.name}>
             <th scope="row"><button onClick={()=>routeTo(`states/${slug(s.name)}`)}>{s.name}</button></th>
             <td><span className={`prov-pill ${s.provenance.status}`}>{provenanceMeta[s.provenance.status].short}</span></td>
             <td className="prov-docs">{s.provenance.documents.length ? s.provenance.documents.join(', ') : <i>none</i>}</td>
-            <td className="prov-note">{s.provenance.note || <i>Not yet checked.</i>}</td>
           </tr>)}
         </tbody>
       </table>
@@ -606,9 +605,8 @@ const PODCASTS = [
 function StayCurrent() {
   return <section className="stay-current" aria-label="Podcasts for staying current">
     <div>
-      <p className="eyebrow">Stay current</p>
-      <h2>This site is a snapshot. These keep publishing.</h2>
-      <p>The research here is dated to July 2026. Policy and practice keep moving, and these shows track them.</p>
+      <h2>Stay current</h2>
+      <p>The research here is dated to July 2026. These shows track what changes after that.</p>
     </div>
     <div className="podcast-list">
       {PODCASTS.map(pod => <a key={pod.url} href={pod.url} target="_blank" rel="noreferrer">
