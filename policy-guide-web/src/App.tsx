@@ -577,7 +577,6 @@ function Methodology() {
       <article><span>01</span><h2>Primary documents first</h2><p>State profiles are generated from 52 jurisdiction analyses built on statutes, agency guidance, and model policies. Where this project has opened the document itself, the table above says so.</p></article>
       <article><span>02</span><h2>Legal force stays visible</h2><p>Enacted requirements, voluntary guidance, pending legislation, and state-agency absence are separate categories. A proposed bill is never presented as current law.</p></article>
       <article><span>03</span><h2>Exposure is not assumed</h2><p>Most guidance is voluntary and locally implemented. A state instrument shows what students may have encountered, not what every graduate necessarily learned.</p></article>
-      <article><span>04</span><h2>Errors are published, not buried</h2><p>Where a claim fails verification it is corrected in the open rather than quietly removed. Georgia's widely repeated traffic-light system was withdrawn after both primary documents were searched and it appeared in neither. Two other findings were themselves overturned on re-reading, and those reversals are recorded in the project ledger too.</p></article>
     </div>
 
     <section className="legend-panel">
