@@ -203,13 +203,13 @@
       "note": "Confirmed. Names AI Content Detector, GPTZero and Turnitin, with accuracy cautions."
     },
     "Missouri": {
-      "status": "downloaded",
+      "status": "read",
       "documents": [
         "DESE-AI-Guidance.pdf",
         "HB3139.pdf"
       ],
-      "checkedOn": "2026-07-30",
-      "note": "CLAIM NOT FOUND. The site records a \"Five S\" prompting framework. The captured DESE guidance has a Prompt Engineering section but contains no Five S framework anywhere. Drop or re-source."
+      "checkedOn": "2026-08-06",
+      "note": "Five \"S\" prompting model CONFIRMED verbatim in the DESE guidance prompt-engineering section, attributed to AI for Education (2023): Set the scene, Be specific, Simplify your language, Structure the output, Share the feedback. The July 31 not-found finding was a search error (curly quotes) and was reversed."
     },
     "Montana": {
       "status": "read",
@@ -271,7 +271,7 @@
       "note": "Confirmed as 0 to Infinity: NCDPI AI Use Continuum v2.0, Appendix B. Level 0 AI Free, 1 AI for Planning, 2 AI Collaboration, 3 Full AI Use, 4 AI Exploration. | Detector claim also confirmed verbatim: AI detectors have proven not to be dependable, therefore they should never be used as the only factor."
     },
     "North Dakota": {
-      "status": "downloaded",
+      "status": "read",
       "documents": [
         "Checklist-Business-and-IT.pdf",
         "Checklist-Educators.pdf",
@@ -279,8 +279,8 @@
         "Checklist-Public-Outreach.pdf",
         "Checklist-School-Leadership.pdf"
       ],
-      "checkedOn": "2026-07-30",
-      "note": "CLAIM WEAK. Site says \"Neutral mention\" of detectors. The five captured checklists mention plagiarism as a question to address but contain no detector discussion at all. Downgrade or drop the claim."
+      "checkedOn": "2026-08-06",
+      "note": "Detector neutral-mention CONFIRMED verbatim in Checklist-Educators (\"The internet has multiple tools to help educators recognize original or AI generated content\"). Four grade bands K-2, 3-5, 6-8, 9-12 confirmed verbatim in content.md, captured from the ND DPI web framework. The July 31 not-addressed finding was a keyword-net error and was reversed."
     },
     "Ohio": {
       "status": "read",

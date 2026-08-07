@@ -193,12 +193,21 @@ Michigan Virtual directly, so three states share one rubric lineage. That is a
 second borrowing network alongside the AIAS one and it is worth a mention in the
 comparison.
 
-### The two claims that failed
+### ~~The two claims that failed~~ — BOTH REVERSED 2026-08-06
 
-| State | Claim | Finding |
+**The July 31 sweep was wrong on both, and the original claims are confirmed at
+primary source.** The failures were search-pattern failures, not document
+failures, and they are recorded here as a caution about automated checking.
+
+| State | Claim | What actually happened |
 |---|---|---|
-| Missouri | `"Five S" prompting` | The captured DESE guidance has a Prompt Engineering section and no Five S framework anywhere. Drop or re-source. |
-| North Dakota | Detector "neutral mention" | The five checklists raise plagiarism as a question and never discuss detectors. |
+| Missouri | "Five S" prompting | **CONFIRMED.** The DESE guidance presents "The Five "S" Model presented by AI for Education (aiforeducation.io, 2023)" with all five steps verbatim (Set the scene, Be specific, Simplify your language, Structure the output, Share the feedback). The sweep grepped for the plain string `Five S` and the document uses curly quotes around the S. |
+| North Dakota | Detector "neutral mention" | **CONFIRMED.** Checklist-Educators, under the plagiarism item, verbatim: "The internet has multiple tools to help educators recognize original or AI generated content." Neither endorsement nor caution, which is exactly a neutral mention. The sweep's keyword net (detector, checker, Turnitin, GPTZero) missed a sentence that describes detection tools without using any detector vocabulary. Also confirmed from `content.md`: the four grade bands K-2, 3-5, 6-8, 9-12, verbatim. |
+
+**The lesson, again.** A grep can only refute a claim phrased in the words the
+grep expected. Refutations, like confirmations, need the passage read in
+context. Two claims were wrongly published as failed for six days because the
+refuting search was trusted the way the original tracker claims never were.
 
 ## Texas — retrieved and checked, 2026-07-30
 

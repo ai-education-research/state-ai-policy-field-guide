@@ -78,7 +78,7 @@ Concise positions across six decision-relevant dimensions. "Not captured" means 
 | Michigan | Voluntary rubric (nonprofit, MDE-endorsed) | None; 3-stage × 8-domain maturity rubric | Not found in documents | Not captured | Rubric directly adoptable by institutions |
 | Minnesota | Voluntary | No scale; 5 principles | Not found in documents | **Explicit**: bypassing "repetition necessary to build foundational skills" | Not captured |
 | Mississippi | Voluntary | None (explicit) | Cautionary re: accuracy + EL false positives | Scaffolding-fade principle | Reviewed w/ Kennesaw State + Jackson State |
-| Missouri | Voluntary (CS Advisory Council) | None (explicit); *"Five S" prompting — NOT IN PRIMARY TEXT* | Silent (neither endorses nor cautions) | Teacher modeling; rigor over simplification | Council includes 4 university faculty |
+| Missouri | Voluntary (CS Advisory Council) | None (explicit); "Five S" prompting | Silent (neither endorses nor cautions) | Teacher modeling; rigor over simplification | Council includes 4 university faculty |
 | Montana | Voluntary | None (explicit, by design) | Not addressed | Over-reliance + productive struggle | **Board of Regents a "Constitutional Player"**; Univ. System teacher prep |
 | Nebraska | **Confirmed absence** | None | Not captured | Not captured | None |
 | Nevada | Voluntary (STELLAR) | None (explicit); Understand/Apply/Integrate/Grow | Not addressed; process-based plagiarism plan | "Process, not the result" literacy goal | UNLV, CSN, WNC on steering committee |
@@ -87,7 +87,7 @@ Concise positions across six decision-relevant dimensions. "Not captured" means 
 | New Mexico | Voluntary | **5-level AIAS** (verbatim Perkins names) | Low reliability; biased vs. non-native writers | 4-I framework; Level 1 NO AI floor | **NMAIC**: Los Alamos + Sandia + UNM/NMSU/NM Tech/CNM |
 | New York | **No NYSED guidance**; bills pending; NYC district uncaptured | None statewide | Not captured | Sub-9th-grade ban proposed (pending) | None |
 | North Carolina | Voluntary living document | **5-level "0 to Infinity"** (AIAS-attributed); EVERY; CRAFT 2.0 | Never the only factor | Level 0 floor; PK-5 no-chatbot; teachable moment | **PK-13 scope names grade 13 + educators** |
-| North Dakota | Voluntary web framework | None (explicit); 4 grade bands | Not addressed in captured checklists | "Short-circuit... problem-solving skills" (3-5) | **None found** |
+| North Dakota | Voluntary web framework | None (explicit); 4 grade bands | Neutral mention | "Short-circuit... problem-solving skills" (3-5) | **None found** |
 | Ohio | **Statute** (ORC 3301.24): all districts adopt by 7/1/2026 | None (explicit); per-syllabus discretion | Not mentioned | Assist-not-replace; no substitute for effort | Postsecondary institutions on district AI workgroup |
 | Oklahoma | **Statute** (SB 1734) + voluntary guidance | **5-level (0-4) AIAS-attributed**; chat-link disclosure | Not always reliable; false positives | Level 0 floor; human oversight at L3-4 | Guidance urges higher-ed partnerships |
 | Oregon | Voluntary ×2 (2023 + 2025 workbook) | None authored; **recommends AIAS** | **Tolerant with caveats** (mixed) | Electric-bike metaphor; process over product | Univ. of Oregon faculty co-authored 2023 |
@@ -401,7 +401,7 @@ Grounded in what the state files actually recommend, so that institutional pract
 | Ohio.md | Non-consensual intimate imagery provisions tied to **Braden's Law** |
 | Utah.md | Naming **agentic AI** as offloading "decision making and/or cognitive effort" |
 | Rhode Island.md | Non-penalizing grading for **AI-supported accommodations** for Differently-Abled Students |
-| Missouri.md | ~~The "Five S" prompting model~~ **NOT CONFIRMED.** Absent from the captured DESE guidance (checked 2026-07-30) |
+| Missouri.md | The **"Five S"** prompting model as taught state guidance. **CONFIRMED at primary source 2026-08-06** (DESE guidance, prompt-engineering section, written as the Five "S" Model from AI for Education) |
 | New Hampshire.md | A state that **endorsed but did not author** a non-governmental coalition's AI guidance |
 | South Dakota.md | A **school-boards-association model policy** as the sole de facto state framework |
 | South Carolina.md | A **CTE course-standards framework** with proficiency tiers easily miscounted as use guidance |
