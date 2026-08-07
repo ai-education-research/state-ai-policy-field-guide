@@ -636,7 +636,7 @@ function App() {
   else if (parts[0]==='readiness') view=<Readiness stateSlug={parts[1]}/>
   else if (parts[0]==='methodology') view=<Methodology/>
   else view=<Overview/>
-  return <div><Header route={route}/><main id="main" className="site-main">{view}</main><StayCurrent/><footer className="site-footer"><div><b>What Students Learned About AI Before College</b><p>Research current through July 2026. Legislative status and living guidance can change.</p></div><button onClick={()=>routeTo('methodology')}>Methodology and evidence</button></footer></div>
+  return <div><Header route={route}/><main id="main" className="site-main">{view}</main><StayCurrent/><footer className="site-footer"><div><b>What Students Learned About AI Before College</b><p>Research current through July 2026. Legislative status and living guidance can change.</p></div><div className="footer-right"><p className="byline">Research and site by <a href="https://sidsresearchcommunity.com/ai-in-education-newsletter/" target="_blank" rel="noreferrer">Sidaard Gunasekaran</a><span>Associate Professor, University of Dayton</span></p><button onClick={()=>routeTo('methodology')}>Methodology and evidence</button></div></footer></div>
 }
 
 export default App
