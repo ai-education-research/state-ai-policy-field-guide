@@ -463,7 +463,7 @@ function ExposureCard({point, index, state}: {point:ExposurePoint; index:number;
           <p>{fact.text}</p>
         </div>}
       </div>
-      <div className="xp-chev"><ChevronRight size={17}/></div>
+      <div className="xp-chev">{open ? 'Close' : 'Click for details'}<ChevronRight size={18}/></div>
     </div>
 
     {open && <div className="xp-close">
