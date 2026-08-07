@@ -96,7 +96,7 @@ function Header({route}: {route:string}) {
     <a className="skip-link" href="#main">Skip to content</a>
     <header className="site-header">
       <button className="brand" onClick={() => routeTo('overview')} aria-label="Go to overview">
-        <b>What Your Students Were Taught About AI</b>
+        <b>What Students Learned About AI Before College</b>
         <small>K–12 AI policy in all 52 US school systems, and what it means for higher education</small>
       </button>
       <button className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle navigation">
@@ -632,7 +632,7 @@ function App() {
   else if (parts[0]==='readiness') view=<Readiness stateSlug={parts[1]}/>
   else if (parts[0]==='methodology') view=<Methodology/>
   else view=<Overview/>
-  return <div><Header route={route}/><main id="main" className="site-main">{view}</main><StayCurrent/><footer className="site-footer"><div><b>Overview of State AI Policy and What Higher Education Can Learn from It</b><p>Research current through July 2026. Legislative status and living guidance can change.</p></div><button onClick={()=>routeTo('methodology')}>Methodology and evidence</button></footer></div>
+  return <div><Header route={route}/><main id="main" className="site-main">{view}</main><StayCurrent/><footer className="site-footer"><div><b>What Students Learned About AI Before College</b><p>Research current through July 2026. Legislative status and living guidance can change.</p></div><button onClick={()=>routeTo('methodology')}>Methodology and evidence</button></footer></div>
 }
 
 export default App
