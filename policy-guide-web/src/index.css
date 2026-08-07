@@ -78,6 +78,13 @@ body{background:var(--ground,var(--paper));color:var(--ink);font-family:var(--bo
 .prov-dot.none{background:var(--blue)}
 @media(max-width:900px){.prov-summary{grid-template-columns:1fr}}
 
+/* The short version — plain-language story per state */
+.sv-list{display:grid;gap:0}
+.sv-item{border-top:1px solid var(--line);padding:18px 0}
+.sv-item:first-child{border-top:0;padding-top:6px}
+.sv-item b{display:block;font:500 19px/1.35 var(--display);color:var(--ink);margin-bottom:7px}
+.sv-item p{margin:0;color:#CFDDE6;font-size:15px;line-height:1.68;max-width:78ch}
+
 /* Exposure evidence — what students are already doing */
 .exposure-section{padding:10px 0 50px;border-bottom:1px solid var(--line);scroll-margin-top:100px}
 .exposure-section>.eyebrow{margin-top:30px}

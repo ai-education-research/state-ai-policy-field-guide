@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { SHORT_VERSIONS } from './short-versions.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const appRoot = path.resolve(here, '..')
@@ -267,6 +268,7 @@ const states = stateFiles.map(filename => {
     summary: stripApparatus(firstParagraph(s['Executive Summary'])),
     graduateProfile: graduateProfile(stripApparatus(s['Expected Graduate AI Profile'])),
     exposure: EXPOSURE_EVIDENCE[name] || [],
+    shortVersion: SHORT_VERSIONS[name] || [],
     instrument: meta.instrument,
     detector: meta.detector,
     offloading: meta.offloading,

@@ -368,10 +368,15 @@ function StateDetail({state}: {state:StateProfile}) {
       <aside className="profile-nav"><b>On this page</b>{Object.keys(stateSectionLabels).map(k=><button key={k} onClick={()=>document.getElementById(`section-${k}`)?.scrollIntoView()}>{stateSectionLabels[k]}</button>)}</aside>
       <div className="profile-content">
         <ExposureEvidence state={state}/>
-        <section className="profile-section">
-          <p className="eyebrow">What {state.name} published</p>
-          <p className="published-summary">{state.summary}</p>
-        </section>
+        {state.shortVersion.length > 0 && <section className="profile-section short-version">
+          <p className="eyebrow">The short version</p>
+          <div className="sv-list">
+            {state.shortVersion.map((item,i) => <div className="sv-item" key={i}>
+              <b>{item.lead}</b>
+              <p>{item.text}</p>
+            </div>)}
+          </div>
+        </section>}
         <section className="evidence-snapshot">
           <h2>Evidence snapshot</h2>
           <dl><div><dt>Student-use instrument</dt><dd>{state.instrument}</dd></div><div><dt>Detector position</dt><dd>{state.detector}</dd></div><div><dt>Cognitive offloading</dt><dd>{state.offloading}</dd></div><div><dt>Higher-ed connection</dt><dd>{state.higherEdHook}</dd></div></dl>

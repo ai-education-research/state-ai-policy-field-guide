@@ -26,6 +26,11 @@ export interface ExposureItem {
   caveat?: string
 }
 
+export interface ShortVersionItem {
+  lead: string
+  text: string
+}
+
 export interface StateProfile {
   name: string
   abbreviation: string
@@ -35,6 +40,7 @@ export interface StateProfile {
   summary: string
   graduateProfile: string[]
   exposure: ExposureItem[]
+  shortVersion: ShortVersionItem[]
   instrument: string
   detector: string
   offloading: string
