@@ -542,7 +542,6 @@ function Readiness({stateSlug}: {stateSlug?:string}) {
       </div>
     </section>
 
-    <section className="roadmap"><p className="eyebrow">If you are building the institutional response</p><Markdown>{content.readiness.roadmap}</Markdown></section>
   </>
 }
 
