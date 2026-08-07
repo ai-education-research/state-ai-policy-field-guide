@@ -351,7 +351,7 @@ function StateExplorer() {
 // the student, which is the reader's question. The policy description follows.
 const stateSectionLabels: Record<string,string> = {
   offloading:'Learning and cognitive offloading', policy:'K–12 policy and guidance', graduate:'Expected graduate profile',
-  implications:'Implications for higher education', response:'Recommended higher-education response', unique:'Distinctive approaches', gaps:'Evidence gaps and uncertainties'
+  implications:'Implications for higher education', response:'Recommended higher-education response', unique:'Distinctive approaches'
 }
 
 function StateDetail({state}: {state:StateProfile}) {
