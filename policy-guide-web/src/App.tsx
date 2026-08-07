@@ -598,14 +598,16 @@ const PODCASTS = [
   { name: 'AI in Education Podcast', by: 'Dan Bowen and Ray Fleming. Weekly.',
     url: 'https://podcasts.apple.com/us/podcast/ai-in-education-podcast/id1481311877' },
   { name: 'Getting Smart Podcast', by: 'Getting Smart. Broader education innovation, with regular AI coverage.',
-    url: 'https://podcasts.apple.com/us/podcast/getting-smart-podcast/id1017984086' }
+    url: 'https://podcasts.apple.com/us/podcast/getting-smart-podcast/id1017984086' },
+  { name: 'AI in Education, Weekly Briefing for Faculty and Staff', by: 'Sidaard Gunasekaran, University of Dayton. Weekly newsletter.',
+    url: 'https://sidsresearchcommunity.com/ai-in-education-newsletter/' }
 ]
 
 function StayCurrent() {
   return <section className="stay-current" aria-label="Podcasts for staying current">
     <div>
       <h2>Stay current</h2>
-      <p>The research here is dated to July 2026. These shows track what changes after that.</p>
+      <p>The research here is dated to July 2026.</p>
     </div>
     <div className="podcast-list">
       {PODCASTS.map(pod => <a key={pod.url} href={pod.url} target="_blank" rel="noreferrer">
