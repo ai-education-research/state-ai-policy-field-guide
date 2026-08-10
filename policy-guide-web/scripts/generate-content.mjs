@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { SHORT_VERSIONS } from './short-versions.mjs'
+import { plainLanguage } from './plain-language.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const appRoot = path.resolve(here, '..')
@@ -95,6 +96,7 @@ function graduateProfile(section = '') {
       const stop = cut.lastIndexOf('. ')
       return stop > 90 ? cut.slice(0, stop + 1) : cut.replace(/[ ,;.]+$/, '') + '…'
     })
+    .map(plainLanguage)
     .filter(Boolean)
     .slice(0, 5)
 }
@@ -131,7 +133,10 @@ const provenance = JSON.parse(read(path.join(projectRoot, 'provenance.json')))
 const comparison = read(path.join(projectRoot, 'cross-state-ai-policy-comparison.md'))
 const matrixBlock = comparison.match(/\| Jurisdiction \| Authority \/ force[\s\S]*?\n\n---/)?.[0] || ''
 const matrix = Object.fromEntries(tableRows(matrixBlock).slice(1).map(row => [plain(row[0]), {
-  authority: plain(row[1]), instrument: plain(row[2]), detector: plain(row[3]), offloading: plain(row[4]), higherEdHook: plain(row[5])
+  authorityRaw: plain(row[1]),
+  authority: plainLanguage(plain(row[1])), instrument: plainLanguage(plain(row[2])),
+  detector: plainLanguage(plain(row[3])), offloading: plainLanguage(plain(row[4])),
+  higherEdHook: plainLanguage(plain(row[5]))
 }]))
 
 function posture(authority = '') {
@@ -249,7 +254,7 @@ const states = stateFiles.map(filename => {
   const name = filename.replace(/\.md$/, '')
   const markdown = read(path.join(analysisDir, filename))
   const s = sections(markdown)
-  const meta = matrix[name] || {authority:'Evidence profile in state analysis', instrument:'See state analysis', detector:'See state analysis', offloading:'See state analysis', higherEdHook:'See state analysis'}
+  const meta = matrix[name] || {authorityRaw:'Evidence profile in state analysis', authority:'Evidence profile in state analysis', instrument:'See state analysis', detector:'See state analysis', offloading:'See state analysis', higherEdHook:'See state analysis'}
   const docs = sourceDocs(s['Source Documents'])
   const led = provenance.jurisdictions[name] || {status:'none', documents:[], note:null, checkedOn:null}
   const fullText = plain(markdown).toLowerCase()
@@ -262,10 +267,10 @@ const states = stateFiles.map(filename => {
   return {
     name,
     abbreviation: abbreviations[name] || name.slice(0,2).toUpperCase(),
-    posture: posture(meta.authority),
+    posture: posture(meta.authorityRaw || meta.authority),
     authority: meta.authority,
     provenance: {status: led.status, documents: led.documents || [], checkedOn: led.checkedOn || null, note: led.note || null},
-    summary: stripApparatus(firstParagraph(s['Executive Summary'])),
+    summary: plainLanguage(stripApparatus(firstParagraph(s['Executive Summary']))),
     graduateProfile: graduateProfile(stripApparatus(s['Expected Graduate AI Profile'])),
     exposure: EXPOSURE_EVIDENCE[name] || [],
     shortVersion: SHORT_VERSIONS[name] || [],
@@ -277,13 +282,12 @@ const states = stateFiles.map(filename => {
     documents: docs,
     sourceUrls: sourceUrls(name),
     sections: {
-      policy: stripApparatus(s['K–12 AI Policy and Guidance'] || s['K-12 AI Policy and Guidance']),
-      offloading: stripApparatus(s['Learning and Cognitive-Offloading Strategies']),
-      graduate: stripApparatus(s['Expected Graduate AI Profile']),
-      implications: stripApparatus(s['Implications for Higher Education']),
-      response: stripApparatus(s['Recommended Higher-Education Response']),
-      unique: stripApparatus(s['Unique Aspects']),
-      gaps: stripApparatus(s['Evidence Gaps and Uncertainties'])
+      policy: plainLanguage(stripApparatus(s['K–12 AI Policy and Guidance'] || s['K-12 AI Policy and Guidance'])),
+      offloading: plainLanguage(stripApparatus(s['Learning and Cognitive-Offloading Strategies'])),
+      graduate: plainLanguage(stripApparatus(s['Expected Graduate AI Profile'])),
+      implications: plainLanguage(stripApparatus(s['Implications for Higher Education'])),
+      response: plainLanguage(stripApparatus(s['Recommended Higher-Education Response'])),
+      unique: plainLanguage(stripApparatus(s['Unique Aspects']))
     }
   }
 })
@@ -297,8 +301,8 @@ const frameworks = Object.entries(frameworkSections)
     id: heading.replace(/^\d+\.\s*/, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
     number: index + 1,
     title: heading.replace(/^\d+\.\s*/, ''),
-    body: stripApparatus(body),
-    summary: stripApparatus(firstParagraph(body)),
+    body: plainLanguage(stripApparatus(body)),
+    summary: plainLanguage(stripApparatus(firstParagraph(body))),
     states: stateNames.filter(name => new RegExp(`\\b${name.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&')}\\b`).test(body))
   }))
 
@@ -488,18 +492,18 @@ const content = {
   frameworks,
   instruments,
   exposure,
-  featuredFrameworks: stripApparatus(frameworkSections['If you adopt only three things']),
+  featuredFrameworks: plainLanguage(stripApparatus(frameworkSections['If you adopt only three things'])),
   overview: {
     scene: stripApparatus(briefSections['The scene']),
     thesis: stripApparatus(briefSections['The thesis, stated precisely']),
     moves: stripApparatus(briefSections['Five moves for the first term'])
   },
   readiness: {
-    verdict: stripApparatus(readinessSections['Is Higher Education Ready? The Verdict']),
-    faculty: stripApparatus(readinessSections['Guidelines for Faculty']),
-    administrators: stripApparatus(readinessSections['Guidelines for Administrators']),
-    roadmap: stripApparatus(readinessSections['Institutional Implementation Roadmap']),
-    limitations: stripApparatus(readinessSections['Evidence Gaps and Limitations'])
+    verdict: plainLanguage(stripApparatus(readinessSections['Is Higher Education Ready? The Verdict'])),
+    faculty: plainLanguage(stripApparatus(readinessSections['Guidelines for Faculty'])),
+    administrators: plainLanguage(stripApparatus(readinessSections['Guidelines for Administrators'])),
+    roadmap: plainLanguage(stripApparatus(readinessSections['Institutional Implementation Roadmap'])),
+    limitations: plainLanguage(stripApparatus(readinessSections['Evidence Gaps and Limitations']))
   }
 }
 
