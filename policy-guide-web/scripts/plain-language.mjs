@@ -103,8 +103,16 @@ const TERMS = [
 
 export function plainLanguage(text) {
   if (!text) return ''
-  // shield protected proper names behind placeholders
+  // shield filenames first: expanding an abbreviation inside "MSDE-AI-Guidance.pdf"
+  // produces nonsense like "the state education department-AI-Guidance.pdf"
   const shields = []
+  for (const m of text.match(/\b[A-Za-z0-9][A-Za-z0-9._-]*\.(?:pdf|docx|doc|html?|md)\b/g) || []) {
+    if (!shields.includes(m)) {
+      const key = `\u0000${shields.length}\u0000`
+      shields.push(m)
+      text = text.split(m).join(key)
+    }
+  }
   for (const name of PROTECT) {
     if (text.includes(name)) {
       const key = `\u0000${shields.length}\u0000`
