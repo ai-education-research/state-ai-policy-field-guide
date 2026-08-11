@@ -121,20 +121,24 @@ export function plainLanguage(text) {
     }
   }
   const restore = out => shields.reduce((acc, name, i) => acc.split(`\u0000${i}\u0000`).join(name), out)
-  // Odd-indexed parts are quoted spans and pass through untouched.
+  // Odd-indexed parts are quoted spans and pass through untouched. Every
+  // cleanup, including the sentence-capital restore, must stay inside the
+  // even parts, or it edits verbatim quotes ("not... definitive" once
+  // shipped as "not... Definitive").
   return restore(text
     .split(/("[^"]*"|“[^”]*”)/g)
     .map((part, i) => {
       if (i % 2 === 1) return part
       let t = part
       for (const [rx, rep] of TERMS) t = t.replace(rx, rep)
+      t = t
+        .replace(/\bthe the\b/g, 'the')
+        .replace(/\bvoluntary the state/g, 'voluntary state')
+        .replace(/[ \t]{2,}/g, ' ')
+        // an expansion at the start of a sentence needs its capital back
+        .replace(/([.!?]\s+|\n\s*[-*]\s+|\*\*)([a-z])/g, (m, pre, ch) => pre + ch.toUpperCase())
+      if (i === 0) t = t.replace(/^[a-z]/, ch => ch.toUpperCase())
       return t
     })
-    .join('')
-    .replace(/\bthe the\b/g, 'the')
-    .replace(/\bvoluntary the state/g, 'voluntary state')
-    .replace(/[ \t]{2,}/g, ' ')
-    // an expansion at the start of a sentence needs its capital back
-    .replace(/(^|[.!?]\s+|\n\s*[-*]\s+|\*\*)([a-z])/g, (m, pre, ch) => pre + ch.toUpperCase())
-    )
+    .join(''))
 }
