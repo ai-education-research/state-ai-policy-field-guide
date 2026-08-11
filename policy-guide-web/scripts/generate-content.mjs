@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { SHORT_VERSIONS } from './short-versions.mjs'
+import { GRADUATE_PROFILES } from './graduate-profiles.mjs'
 import { plainLanguage } from './plain-language.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
@@ -271,7 +272,7 @@ const states = stateFiles.map(filename => {
     authority: meta.authority,
     provenance: {status: led.status, documents: led.documents || [], checkedOn: led.checkedOn || null, note: led.note || null},
     summary: plainLanguage(stripApparatus(firstParagraph(s['Executive Summary']))),
-    graduateProfile: graduateProfile(stripApparatus(s['Expected Graduate AI Profile'])),
+    graduateProfile: GRADUATE_PROFILES[name] || graduateProfile(stripApparatus(s['Expected Graduate AI Profile'])),
     exposure: EXPOSURE_EVIDENCE[name] || [],
     shortVersion: SHORT_VERSIONS[name] || [],
     instrument: meta.instrument,
