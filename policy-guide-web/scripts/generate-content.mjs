@@ -3,6 +3,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { SHORT_VERSIONS } from './short-versions.mjs'
 import { GRADUATE_PROFILES } from './graduate-profiles.mjs'
+import { DETAIL_SECTIONS } from './detail-sections.mjs'
 import { plainLanguage } from './plain-language.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
@@ -283,12 +284,12 @@ const states = stateFiles.map(filename => {
     documents: docs,
     sourceUrls: sourceUrls(name),
     sections: {
-      policy: plainLanguage(stripApparatus(s['K–12 AI Policy and Guidance'] || s['K-12 AI Policy and Guidance'])),
-      offloading: plainLanguage(stripApparatus(s['Learning and Cognitive-Offloading Strategies'])),
-      graduate: plainLanguage(stripApparatus(s['Expected Graduate AI Profile'])),
-      implications: plainLanguage(stripApparatus(s['Implications for Higher Education'])),
-      response: plainLanguage(stripApparatus(s['Recommended Higher-Education Response'])),
-      unique: plainLanguage(stripApparatus(s['Unique Aspects']))
+      policy: DETAIL_SECTIONS[name]?.policy || plainLanguage(stripApparatus(s['K–12 AI Policy and Guidance'] || s['K-12 AI Policy and Guidance'])),
+      offloading: DETAIL_SECTIONS[name]?.offloading || plainLanguage(stripApparatus(s['Learning and Cognitive-Offloading Strategies'])),
+      graduate: DETAIL_SECTIONS[name]?.graduate || plainLanguage(stripApparatus(s['Expected Graduate AI Profile'])),
+      implications: DETAIL_SECTIONS[name]?.implications || plainLanguage(stripApparatus(s['Implications for Higher Education'])),
+      response: DETAIL_SECTIONS[name]?.response || plainLanguage(stripApparatus(s['Recommended Higher-Education Response'])),
+      unique: DETAIL_SECTIONS[name]?.unique || plainLanguage(stripApparatus(s['Unique Aspects']))
     }
   }
 })
