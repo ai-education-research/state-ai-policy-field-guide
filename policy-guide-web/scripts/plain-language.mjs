@@ -61,6 +61,17 @@ const TERMS = [
   // --- frameworks and models ----------------------------------------------
   [/\bthe SAMR model\b/g, 'a model that sorts technology use from doing old work a new way up to work that would not be possible without it'],
   [/\bSAMR\b/g, 'a model of how far technology changes a task'],
+  // AIAS as a compound adjective needs reordering, not bare substitution:
+  // "AIAS-derived permission scale" must not become "the published AI
+  // Assessment Scale-derived permission scale". These run before the generic
+  // rules because \b treats the hyphen as a word boundary.
+  [/a five-level, AIAS-derived permission scale/g, 'a five-level permission scale based on the published AI Assessment Scale'],
+  [/\bAIAS-derived scales\b/g, 'scales based on the published AI Assessment Scale'],
+  [/\bAIAS-derived\b/g, 'based on the published AI Assessment Scale'],
+  [/\bAIAS-attributed\b/g, 'attributed to the published AI Assessment Scale'],
+  [/\ban AIAS-style scale\b/g, 'a scale in the style of the published AI Assessment Scale'],
+  [/\bAIAS-style vocabulary\b/g, 'vocabulary in the style of the published AI Assessment Scale'],
+  [/\bconfirmed AIAS-lineage (state|instrument)\b/g, '$1 with a confirmed link to the published AI Assessment Scale'],
   [/\bthe AIAS\b/g, 'the AI Assessment Scale, a published academic paper'],
   [/\bAIAS\b/g, 'the published AI Assessment Scale'],
   [/\bNIST\b/g, 'a federal cybersecurity standard'],
